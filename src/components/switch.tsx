@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './switch.css';
+import {Simulate} from "react-dom/test-utils";
 
 export type SwitchProps = {
     rounded?: boolean;
@@ -7,19 +8,24 @@ export type SwitchProps = {
     colorUnchecked?: string;
 };
 
-const Switch: React.FC<SwitchProps> = ({ rounded = false, colorChecked = '#', colorUnchecked = '#' }) => {
+const Switch: React.FC<SwitchProps> = ({rounded = false, colorChecked = '#', colorUnchecked = '#'}) => {
     const [isChecked, setIsChecked] = useState(false);
 
-    const toggleSwitch = () => {
-        console.log("clicked", isChecked)
-        setIsChecked(!isChecked);
 
+    const toggleSwitch = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+        e.stopPropagation(); // Stop event propagation
+        setIsChecked(!isChecked);
+        console.log("clicked", isChecked)
+        console.log("clicked", colorUnchecked)
+        console.log("clicked", colorChecked)
     };
 
     return (
-        <label className={`switch ${isChecked ? 'checked' : ''}`} onClick={toggleSwitch}>
-            <input type="checkbox"  />
-            <span className={`slider ${rounded ? 'round' : ''}`}></span>
+        <label className={`switch ${isChecked ? 'checked' : ''}`} >
+            <input type="checkbox" onClick={toggleSwitch}
+                   style={{backgroundColor: isChecked ? colorChecked : colorUnchecked,}}/>
+            <span className={`slider  ${rounded ? 'round' : ''}`}
+                  style={{backgroundColor: isChecked ? colorChecked : colorUnchecked}}></span>
         </label>
     );
 };

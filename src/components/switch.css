@@ -17,7 +17,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc; /* Standardfarbe für den "unchecked" Zustand */
+    background-color: #efefef; /* Standardfarbe für den "unchecked" Zustand */
     transition: .4s;
 }
 
@@ -41,11 +41,11 @@
 }
 
 input:checked + .slider {
-    background-color: #2196F3; /* Standardfarbe für den "checked" Zustand */
+    background-color: #00ff00; /* Standardfarbe für den "checked" Zustand */
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3; /* Box-Schatten für den Fokus-Zustand */
+    box-shadow: 0 0 1px #022946; /* Box-Schatten für den Fokus-Zustand */
 }
 
 

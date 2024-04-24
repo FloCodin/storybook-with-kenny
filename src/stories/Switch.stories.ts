@@ -25,13 +25,13 @@ export const square: Story = {
     args: {
         rounded: false,
         colorChecked: '#0f91fc',
-        colorUnchecked: '#dadada'
+        colorUnchecked: '#cccccc',
     },
 };
 export const rounded: Story = {
     args: {
         rounded: true,
         colorChecked: '#12ff1d',
-        colorUnchecked: '#000000'
+        colorUnchecked: '#000000',
     },
 };
