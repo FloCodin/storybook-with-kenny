@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ButtonOutlined from "@/components/ButtonOutlined";
+import InputField from "@/components/InputField";
 
 export default function Home() {
   return (
@@ -58,13 +58,7 @@ export default function Home() {
           </p>
         </a>
 
-        <div className="flex flex-wrap gap-2">
-          <ButtonOutlined type="success" label="Success" />
-          <ButtonOutlined type="info" label="Info" />
-          <ButtonOutlined type="warning" label="Warning" />
-          <ButtonOutlined type="danger" label="Danger" />
-          <ButtonOutlined type="default" label="Default" />
-        </div>
+        <InputField/>
 
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
