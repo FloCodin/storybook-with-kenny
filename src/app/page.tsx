@@ -14,6 +14,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {yellow} from "next/dist/lib/picocolors";
 
 export default function Home() {
     const [position, setPosition] = React.useState("bottom")
@@ -76,7 +77,10 @@ export default function Home() {
                     </p>
                 </a>
 
-                <InputField/>
+                <InputField
+                    firstNameId={"DisMami"} firstNameLabel={"DisMami"} firstNameName={"DisMami"}
+                    lastNameLabel={"DinPapi"} lastNameId={"DinPapi"} lastNameName={"DinPapi"}
+                    firstNameBorderColor={"purple"} lastNameBorderColor={"yellow"}/>
 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>

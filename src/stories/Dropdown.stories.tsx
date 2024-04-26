@@ -1,7 +1,6 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import Dropdown from '@/components/Dropdown';
-
+import { Meta, StoryObj  } from '@storybook/react';
+import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -11,89 +10,46 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
     DropdownMenuGroup,
-    DropdownMenuPortal,
     DropdownMenuSub,
-    DropdownMenuSubContent,
     DropdownMenuSubTrigger,
+    DropdownMenuSubContent,
     DropdownMenuRadioGroup,
-} from '@/components/ui/dropdown-menu'; // Passe den Pfad entsprechend deiner Dateistruktur an
+} from '@/components/ui/dropdown-menu';
 
 export default {
     title: 'Flo/Dropdown',
-    component: DropdownMenu,
+        component: DropdownMenu,
 } as Meta;
 
-export const BasicDropdown = () => (
+export const BasicDropdown: StoryObj<typeof DropdownMenu> = {
+    render: () => (
     <DropdownMenu>
-        <DropdownMenuTrigger>
-            <button>Open Dropdown</button>
-</DropdownMenuTrigger>
-<DropdownMenuContent>
-<DropdownMenuItem>Banane</DropdownMenuItem>
-<DropdownMenuItem>Apfel</DropdownMenuItem>
-<DropdownMenuCheckboxItem checked>is it checked?</DropdownMenuCheckboxItem>
-<DropdownMenuRadioGroup value="radio1 ">
-<DropdownMenuRadioItem value="radio1">Radio 1</DropdownMenuRadioItem>
-<DropdownMenuRadioItem value="radio2">Radio 2</DropdownMenuRadioItem>
-</DropdownMenuRadioGroup>
-<DropdownMenuSeparator />
-<DropdownMenuLabel>look at the Group</DropdownMenuLabel>
-<DropdownMenuGroup>
-<DropdownMenuItem>Grouped Item 1</DropdownMenuItem>
-<DropdownMenuItem>Grouped Item 2</DropdownMenuItem>
-</DropdownMenuGroup>
-<DropdownMenuSub>
-<DropdownMenuSubTrigger>Submenu</DropdownMenuSubTrigger>
-<DropdownMenuSubContent>
-<DropdownMenuItem>hier gehts zu ... </DropdownMenuItem>
-<DropdownMenuItem>hier gehts zu ...</DropdownMenuItem>
-</DropdownMenuSubContent>
-</DropdownMenuSub>
-<DropdownMenuPortal />
-</DropdownMenuContent>
-</DropdownMenu>
-);
-
-
-export const DynamicDropdown: Story = (args) => {
-    return (
-        <DropdownMenu style={{ width: args.width }}>
-            <DropdownMenuTrigger>
-                <button>Open Dropdown</button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-                <DropdownMenuItem>Banane</DropdownMenuItem>
-                <DropdownMenuItem>Apfel</DropdownMenuItem>
-                <DropdownMenuCheckboxItem checked>is it checked?</DropdownMenuCheckboxItem>
-                <DropdownMenuRadioGroup value="radio1 ">
-                    <DropdownMenuRadioItem value="radio1">Radio 1</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="radio2">Radio 2</DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>look at the Group</DropdownMenuLabel>
-                <DropdownMenuGroup>
-                    <DropdownMenuItem>Grouped Item 1</DropdownMenuItem>
-                    <DropdownMenuItem>Grouped Item 2</DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>Submenu</DropdownMenuSubTrigger>
-                    <DropdownMenuSubContent>
-                        <DropdownMenuItem>hier gehts zu ... </DropdownMenuItem>
-                        <DropdownMenuItem>hier gehts zu ...</DropdownMenuItem>
-                    </DropdownMenuSubContent>
-                </DropdownMenuSub>
-                <DropdownMenuPortal />
-            </DropdownMenuContent>
-        </DropdownMenu>
-    );
-};
-
-DynamicDropdown.args = {
-    width: '150px',
-};
-
-DynamicDropdown.argTypes = {
-    width: { control: 'text' },
+        <DropdownMenuTrigger asChild>
+            <Button>Open Dropdown</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+            <DropdownMenuItem onSelect={() => console.log('Banane')}>Banane</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => console.log('Apfel')}>Apfel</DropdownMenuItem>
+            <DropdownMenuCheckboxItem checked={true} onCheckedChange={() => {}}>is it checked?</DropdownMenuCheckboxItem>
+            <DropdownMenuRadioGroup value="radio1">
+                <DropdownMenuRadioItem value="radio1">Radio 1</DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="radio2">Radio 2</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Look at the Group</DropdownMenuLabel>
+            <DropdownMenuGroup>
+                <DropdownMenuItem>Grouped Item 1</DropdownMenuItem>
+                <DropdownMenuItem>Grouped Item 2</DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSub>
+                <DropdownMenuSubTrigger>Submenu</DropdownMenuSubTrigger>
+                <DropdownMenuSubContent>
+                    <DropdownMenuItem>hier gehts zu ...</DropdownMenuItem>
+                    <DropdownMenuItem>hier gehts zu ...</DropdownMenuItem>
+                </DropdownMenuSubContent>
+            </DropdownMenuSub>
+        </DropdownMenuContent>
+    </DropdownMenu>
+    ),
 };
