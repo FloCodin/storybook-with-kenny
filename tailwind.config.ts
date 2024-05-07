@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-
+import colors from "tailwindcss/colors";
 const config = {
   darkMode: ["class"],
   content: [
@@ -10,6 +10,20 @@ const config = {
   ],
   prefix: "",
   theme: {
+
+      theme: {
+        colors: {
+          transparent: 'transparent',
+          current: 'currentColor',
+          black: colors.black,
+          white: colors.white,
+          gray: colors.gray,
+          emerald: colors.emerald,
+          indigo: colors.indigo,
+          yellow: colors.yellow,
+        },
+      },
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -18,6 +32,11 @@ const config = {
       },
     },
     extend: {
+      colors:{
+        primary: colors.indigo,
+        secondary: colors.emerald,
+        neutral: colors.gray,
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -34,7 +53,16 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),
+    require('tailwindcss/colors')],
 } satisfies Config
 
 export default config
+
+
+
+
+
+
+
+

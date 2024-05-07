@@ -14,10 +14,24 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {yellow} from "next/dist/lib/picocolors";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import Alert from "@/components/Alert";
 
 export default function Home() {
     const [position, setPosition] = React.useState("bottom")
+
+
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -96,6 +110,39 @@ export default function Home() {
                         </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                 </DropdownMenu>
+
+                <AlertDialog>
+                    <div className="border-solid border-gray-500 border-2 flex justify-center">
+                    <AlertDialogTrigger>Alert</AlertDialogTrigger>
+                    </div>
+                        <AlertDialogContent className="bg-primary">
+                        <AlertDialogHeader >
+                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                            <AlertDialogDescription className="text-black">
+                                This action cannot be undone. This will permanently delete your account
+                                and remove your data from our servers.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction>Continue</AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
+
+                <Alert
+                    alertBackground={'primary'}
+                    textDescription={"Anakin Skywalker's unparalleled potential and skill in the Force marked him as" +
+                        " one of the most powerful Jedi in history. His journey from a slave on Tatooine to a Jedi" +
+                        " Knight and ultimately Darth Vader showcases his immense impact on the galaxy. Despite his" +
+                        " fall to the dark side, his eventual redemption and fulfillment of the Chosen One prophecy " +
+                        "solidify his legacy as the greatest Jedi to have ever lived. "}
+                    triggerColor={"royal-orange"}
+                    textTitle={"Anakin Skywalker"}
+                    textColor={'#000000'}
+                    triggerText={"the Youngling Slayer"}
+                />
+
 
                 <a
                     href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
