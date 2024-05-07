@@ -125,13 +125,13 @@ export default function Home() {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                             <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction>Continue</AlertDialogAction>
+                            <AlertDialogAction className="bg-tertiary">Continue</AlertDialogAction>
                         </AlertDialogFooter>
                     </AlertDialogContent>
                 </AlertDialog>
 
                 <Alert
-                    alertBackground={'primary'}
+                    alertBackground={'bg-secondary'}
                     textDescription={"Anakin Skywalker's unparalleled potential and skill in the Force marked him as" +
                         " one of the most powerful Jedi in history. His journey from a slave on Tatooine to a Jedi" +
                         " Knight and ultimately Darth Vader showcases his immense impact on the galaxy. Despite his" +
@@ -141,6 +141,7 @@ export default function Home() {
                     textTitle={"Anakin Skywalker"}
                     textColor={'#000000'}
                     triggerText={"the Youngling Slayer"}
+                    continueButton={"bg-tertiary"}
                 />
 
 

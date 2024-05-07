@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
-import colors from "tailwindcss/colors";
+const colors = require('tailwindcss/colors')
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -10,20 +11,6 @@ const config = {
   ],
   prefix: "",
   theme: {
-
-      theme: {
-        colors: {
-          transparent: 'transparent',
-          current: 'currentColor',
-          black: colors.black,
-          white: colors.white,
-          gray: colors.gray,
-          emerald: colors.emerald,
-          indigo: colors.indigo,
-          yellow: colors.yellow,
-        },
-      },
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -33,9 +20,9 @@ const config = {
     },
     extend: {
       colors:{
-        primary: colors.indigo,
-        secondary: colors.emerald,
-        neutral: colors.gray,
+        primary: colors.red["700"],
+        secondary: colors.emerald["400"],
+        teritar: colors.green["800"]
       },
       keyframes: {
         "accordion-down": {
@@ -53,16 +40,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),
-    require('tailwindcss/colors')],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
 export default config
-
-
-
-
-
-
-
-
