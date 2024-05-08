@@ -22,7 +22,7 @@ const config = {
       colors:{
         primary: colors.red["700"],
         secondary: colors.emerald["400"],
-        teritar: colors.green["800"]
+        tertiary: colors.green["800"]
       },
       keyframes: {
         "accordion-down": {
