@@ -26,12 +26,38 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Alert from "@/components/Alert";
+import {BellRing, Check} from "lucide-react"
+
+import {cn} from "@/lib/utils"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card"
+import {Switch} from "@/components/ui/switch"
+import {className} from "postcss-selector-parser";
+import Link from "next/link";
+
+
+const notifications = [
+    {
+        title: "Your call has been confirmed.",
+        description: "1 hour ago",
+    },
+    {
+        title: "You have a new message!",
+        description: "1 hour ago",
+    },
+    {
+        title: "Your subscription is expiring soon!",
+        description: "2 hours ago",
+    },
+]
+
+type CardProps = React.ComponentProps<typeof Card>
+
 
 export default function Home() {
     const [position, setPosition] = React.useState("bottom")
 
 
-
+    let props = notifications;
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -59,7 +85,118 @@ export default function Home() {
                     </a>
                 </div>
             </div>
+            <div className="flex pt-4 pb-4 ">
+                <div className="flex  pr-4 ">
+                    <Card className="bg-primary">
+                        <CardHeader >
+                            <CardTitle className="flex justify-center font-extrabold">Messi the Goat</CardTitle>
+                            <CardDescription className="flex justify-center text-black">Here are some reasons why</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div
+                                className="grid gap-4 bg-blue-300 grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+                                <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500 "/>
+                                <div className="space-y-1">
+                                    <p className="text-sm font-medium leading-none">
+                                        {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                        Ballon d'Or's: ( 8 )
+                                    </p>
+                                    <p className=" text-sm text-muted-foreground">
+                                        2009, 2011, 2012, 2013, 2016, 2019, 2021, 2023
+                                    </p>
+                                    <div className=" w-full flex justify-center ">
+                                        <Image src="/ballon-dor-svgrepo-com.png" alt="ballon dor image" width="128"
+                                               height="128" className=""/>
+                                    </div>
 
+                                </div>
+
+
+                            </div>
+                            <div
+                                className="grid gap-4 bg-white grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+                                <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500"/>
+                                <div className="space-y-1">
+                                    <p className="text-sm font-medium leading-none">
+                                        Golden Boots: ( 6 )
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        2009–10, 2011–12, 2012–13, 2016–17, 2017–18, 2018–19
+                                        <Image src="/GoldenBoot.png" alt="golden Boot image" width="128" height="128"/>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div
+                                className="grid gap-4 bg-blue-300 grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+                                <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500"/>
+                                <div className="space-y-1">
+                                    <p className="text-sm font-medium leading-none">
+                                        La Liga MVP ( 9 )
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        2008/09, 2009/10 ,2010/11, 2011/12
+                                        , 2012/13, 2014/15, 2016/17, 2017/18 , 2018/19
+                                    </p>
+                                    <Image src="/LaLigaMVP.png" alt="golden Boot image" width="128" height="128"/>
+                                </div>
+
+                            </div>
+                        </CardContent>
+                        <CardFooter className="flex justify-center">
+                            {/* eslint-disable-next-line react/no-unescaped-entities */}
+                            <Button variant={"outline"} className="hover:bg-blue-300 font-bold hover:font-extrabold"> Visit Messi's Website
+                                <Link href={"https://messi.com/en/"} className=""/>
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                </div>
+                <div>
+                    <Card className={cn("w-[380px] bg-secondary text-black font-bold", className)} {...props}>
+                        <CardHeader>
+                            <CardTitle>Notifications</CardTitle>
+                            <CardDescription>You have 3 unread messages.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="grid gap-4">
+                            <div className=" flex items-center space-x-4 rounded-md border p-4">
+                                <BellRing/>
+                                <div className="flex-1 space-y-1">
+                                    <p className="text-sm font-medium leading-none">
+                                        Push Notifications
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        Send notifications to device.
+                                    </p>
+                                </div>
+                                <Switch classname="checked:bg-primary accent-blue-700"/>
+                            </div>
+                            <div>
+                                {notifications.map((notification, index) => (
+                                    <div
+                                        key={index}
+                                        className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+                                    >
+                                        <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500"/>
+                                        <div className="space-y-1">
+                                            <p className="text-sm font-medium leading-none">
+                                                {notification.title}
+                                            </p>
+                                            <p className="text-sm text-muted-foreground">
+                                                {notification.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                        <CardFooter>
+                            <Button className="w-full">
+                                <Check className="mr-2 h-4 w-4"/> Mark all as read
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                </div>
+            </div>
             <div
                 className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
                 <Image
@@ -113,10 +250,10 @@ export default function Home() {
 
                 <AlertDialog>
                     <div className="border-solid border-gray-500 border-2 flex justify-center">
-                    <AlertDialogTrigger>Alert</AlertDialogTrigger>
+                        <AlertDialogTrigger>Alert</AlertDialogTrigger>
                     </div>
-                        <AlertDialogContent className="bg-primary">
-                        <AlertDialogHeader >
+                    <AlertDialogContent className="bg-primary">
+                        <AlertDialogHeader>
                             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                             <AlertDialogDescription className="text-black">
                                 This action cannot be undone. This will permanently delete your account
