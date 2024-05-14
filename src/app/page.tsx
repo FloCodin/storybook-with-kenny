@@ -33,6 +33,13 @@ import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} 
 import {Switch} from "@/components/ui/switch"
 import {className} from "postcss-selector-parser";
 import Link from "next/link";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
 
 
 const notifications = [
@@ -49,9 +56,11 @@ const notifications = [
         description: "2 hours ago",
     },
 ]
-
 type CardProps = React.ComponentProps<typeof Card>
-
+const carouselSources= []
+const carouselAlt=[]
+const carouselWidth=[]
+const carouselHeight=[]
 
 export default function Home() {
     const [position, setPosition] = React.useState("bottom")
@@ -168,7 +177,7 @@ export default function Home() {
                                         Send notifications to device.
                                     </p>
                                 </div>
-                                <Switch classname="checked:bg-primary accent-blue-700"/>
+                                <Switch className="checked:bg-primary accent-blue-700"/>
                             </div>
                             <div>
                                 {notifications.map((notification, index) => (
@@ -224,7 +233,7 @@ export default function Home() {
             </span>
                     </h2>
                     <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                        Find in-depth information about Next.js features and API.
+                        Go here for the caroussel
                     </p>
                 </a>
 
@@ -319,23 +328,67 @@ export default function Home() {
                 </a>
 
                 <a
-                    href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                    href="/src/app/Karussell/"
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <h2 className="mb-3 text-2xl font-semibold">
-                        Deploy{" "}
+                        Caroussel Page{" "}
                         <span
                             className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
                     </h2>
-                    <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-                        Instantly deploy your Next.js site to a shareable URL with Vercel.
+                    <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">Checkout the caroussel
+                        Cause we can :)
                     </p>
                 </a>
             </div>
+
+            <Carousel className="w-full max-w-xs">
+                <CarouselContent>
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <CarouselItem key={index}>
+                            <div className="p-1">
+                                <Card>
+                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                        <span className="text-4xl font-semibold">  {index + 1}</span>
+                                        {index === 0 &&  <Image src="/Messi.png" alt="Messi with Worldcup" width="300" height="300"/>}
+                                        {index === 1 &&  <Image src="/Ronaldinho.png" alt="Messi with Worldcup" width="300" height="300"/>}
+                                        {index === 2 &&  <Image src="/Iniesta.png" alt="Messi with Worldcup" width="300" height="300"/>}
+                                        {index === 3 &&
+                                            <ul>
+                                                <li >Goat Messi</li>
+                                                <li >Magic Dinho</li>
+                                                <li >Maestro Iniesta</li>
+                                            </ul>
+                                        }
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+            <Carousel className="w-full max-w-xs">
+                <CarouselContent>
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <CarouselItem key={index}>
+                            <div className="p-1">
+
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+
         </main>
     );
 }
+
+
