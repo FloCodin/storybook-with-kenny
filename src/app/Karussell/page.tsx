@@ -1,14 +1,56 @@
+"use client"
+
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
 import * as React from "react";
 import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay"
 
-type PageProps = {};
 
-const imageSrc = ["/Messi.png", "/Ronaldinho.png", "/Iniesta.png"];
+type CarouselContent = {
+    src: string,
+    alt: string,
+    text: string,
+    height: number,
+    width: number,
+    border: boolean,
 
-const textContent = ["La Pulga, the Goat", "Magician Dinho", "Maestro, visionary"];
+};
+const contents: CarouselContent[] = [
+    {
+        src: "/Messi.png",
+        alt: "La Pulga, the Goat",
+        text: "La Pulga, the Goat",
+        height: 1024,
+        width: 1600,
+        border: true,
+    },
+    {
+        src: "/Ronaldinho.png",
+        alt: "Magician Dinho",
+        text: "Magician Dinho",
+        height: 2160,
+        width: 3840,
+        border: false,
+    },
+    {
+        src: "/Iniesta.png",
+        alt: "Maestro, visionary",
+        text: "Maestro, visionary",
+        height: 1486,
+        width: 2048,
+        border: true,
+    },
+];
 
-export default function Page(props: PageProps) {
+type CarouselProps = {
+    slides: CarouselContent[],
+}
+
+export default function Page(props: CarouselProps) {
+    const {slides} = props;
+    const plugin = React.useRef(
+        Autoplay({ delay: 2000,  playOnInit:true,})
+    )
     return (
         <>
             <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -37,19 +79,41 @@ export default function Page(props: PageProps) {
                         </a>
                     </div>
                 </div>
-                <Carousel className="w-full max-w-xs">
-                    <CarouselContent  className=" ">
-                        {imageSrc.map((src, index) => (
-                            <CarouselItem key={index}>
-                                <div  className="justify-center p-1">
-                                    <Image src={src} alt="images in slider" height={450} width={450}/>
-                                    <span  className="justify-center"> {textContent[index]}</span>
+
+                <Carousel
+                    className="w-full max-w-lg"
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    plugins={[
+                        Autoplay({
+                            delay:3000,
+                            playOnInit: true,
+                        }),
+                    ]}
+                >
+                    <CarouselContent className=" ">
+                        {contents.map((slide, index) => {
+                            return (<CarouselItem key={index}>
+                                <div
+                                    className={`justify-center p-1 ${slide.border ? 'border-black border-4 border-solid ' : ''}`}>
+                                    <Image
+                                        src={slide.src}
+                                        alt={slide.alt}
+                                        height={slide.height}
+                                        width={slide.width}
+
+                                    />
+                                    <span className="pl-16">
+                                        {slide.text}</span>
                                 </div>
-                            </CarouselItem>
-                        ))}
+                            </CarouselItem>)
+                        })}
                     </CarouselContent>
                     <CarouselPrevious/>
                     <CarouselNext/>
+
                 </Carousel>
             </main>
         </>
