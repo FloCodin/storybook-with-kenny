@@ -24,7 +24,7 @@ export const standart: Story = {
     args: {
         triggerColor : '#ef5b5b',
         triggerText : "The BAT",
-        alertBackground : '#9f04f8',
+        alertBackground : 'bg-primary',
         textColor: '#000000',
         textTitle : "I AM BATMAN",
         textDescription : "Batman is Batman cause he is a man dressed as as a bat, if a bat would be a hybrid with " +
@@ -35,7 +35,7 @@ export const secondary: Story = {
     args: {
         triggerColor : '#ef5b5b',
         triggerText : "The Youngling Slayer",
-        alertBackground : '#04f8cb',
+        alertBackground : 'bg-secondary',
         textColor: '#000000',
         textTitle : "Anakin Skywalker",
         textDescription : "Anakin Skywalker's unparalleled potential and skill in the Force marked him as one of " +
