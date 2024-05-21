@@ -157,7 +157,7 @@ export default function Page(props: CarouselProps) {
                                 </div>
                                 <DropdownMenu >
                                     <DropdownMenuTrigger asChild>
-                                        <Button variant="outline" size="icon" className="bg-secondary hover:bg-tertiary">
+                                        <Button variant="outline" size="icon" className="bg-secondary hover:bg-secondary">
                                             <Sun
                                                 className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>
                                             <Moon
@@ -166,13 +166,13 @@ export default function Page(props: CarouselProps) {
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                        <DropdownMenuItem className="bg-secondary hover:bg-tertiary m-1" onClick={() => setTheme("light")}>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1" onClick={() => setTheme("light")}>
                                             Light
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem className="bg-secondary hover:bg-tertiary m-1" onClick={() => setTheme("dark")}>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1" onClick={() => setTheme("dark")}>
                                             Dark
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem className="bg-secondary hover:bg-tertiary m-1" onClick={() => setTheme("system")}>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1" onClick={() => setTheme("system")}>
                                             System
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
