@@ -329,7 +329,6 @@ export default function Page(props: CarouselProps) {
                     </AlertDialogContent>
                 </AlertDialog>
 
-
                 <AlertDialog>
                     <div className="border-solid border-gray-500 border-2 flex justify-center">
                         <AlertDialogTrigger>Alert</AlertDialogTrigger>
