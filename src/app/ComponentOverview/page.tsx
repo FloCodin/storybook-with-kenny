@@ -94,20 +94,14 @@ const contents: CarouselContent[] = [
 
 type CarouselProps = {
     slides: CarouselContent[],
-}
+}/*
 type CardProps = React.ComponentProps<typeof Card>
-const carouselSources = []
-const carouselAlt = []
-const carouselWidth = []
-const carouselHeight = []
+*/
 
 
 export default function Page(props: CarouselProps) {
     const {setTheme} = useTheme()
-    const {slides} = props;
-    const plugin = React.useRef(
-        Autoplay({delay: 2000, playOnInit: true,})
-    )
+
     const [mapType, setMapType] = useState('osm');
     const [position, setPosition] = React.useState("bottom")
 
