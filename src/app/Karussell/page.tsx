@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import {useState} from "react"
 import {BellRing, Check, Moon, Sun} from "lucide-react"
 import {useTheme} from "next-themes"
 
@@ -12,7 +13,9 @@ import Autoplay from "embla-carousel-autoplay"
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card"
 import {cn} from "@/lib/utils";
 import {className} from "postcss-selector-parser";
-// @ts-ignore
+
+import GoogleMapComponent from '@/components/nestedComponent/GoogleMapComponent';
+import OpenStreetMapComponent from '@/components/nestedComponent/OpenSTreetMapComponent';
 
 type CarouselContent = {
     src: string,
@@ -67,6 +70,11 @@ const notifications = [
         description: "2 hours ago",
     },
 ]
+
+/*
+export function useState<string>(     initialState: string | (() => string)): [string, React.Dispatch<React.SetStateAction<string>>
+*/
+
 type CardProps = React.ComponentProps<typeof Card>
 export default function Page(props: CarouselProps) {
     const {setTheme} = useTheme()
@@ -74,6 +82,7 @@ export default function Page(props: CarouselProps) {
     const plugin = React.useRef(
         Autoplay({delay: 2000, playOnInit: true,})
     )
+    const [mapType, setMapType] = useState('osm');
     return (
         <>
             <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -155,9 +164,10 @@ export default function Page(props: CarouselProps) {
                                         Click on the Icon on my right
                                     </p>
                                 </div>
-                                <DropdownMenu >
+                                <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
-                                        <Button variant="outline" size="icon" className="bg-secondary hover:bg-secondary">
+                                        <Button variant="outline" size="icon"
+                                                className="bg-secondary hover:bg-secondary">
                                             <Sun
                                                 className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>
                                             <Moon
@@ -166,13 +176,16 @@ export default function Page(props: CarouselProps) {
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1" onClick={() => setTheme("light")}>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1"
+                                                          onClick={() => setTheme("light")}>
                                             Light
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1" onClick={() => setTheme("dark")}>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1"
+                                                          onClick={() => setTheme("dark")}>
                                             Dark
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1" onClick={() => setTheme("system")}>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1"
+                                                          onClick={() => setTheme("system")}>
                                             System
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
@@ -204,6 +217,76 @@ export default function Page(props: CarouselProps) {
                             </Button>
                         </CardFooter>
                     </Card>
+                </div>
+                <div>
+                    <Card className=" bg-secondary text-black font-bold">
+                        <CardHeader>
+                            <CardTitle className="flex justify-center">Location</CardTitle>
+                            <CardDescription className="flex justify-center">All of our Locations</CardDescription>
+                        </CardHeader>
+                        <CardContent className="grid gap-4">
+                            <div className=" flex items-center space-x-4 rounded-md border p-4">
+                                <BellRing/>
+                                <div className="flex-1 space-y-1">
+                                    <p className="text-sm font-medium leading-none">
+                                        Change youre Theme
+                                    </p>
+                                    <p className="text-sm text-muted-foreground">
+                                        Click on the Icon on my right
+                                    </p>
+                                </div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button variant="outline" size="icon"
+                                                className="bg-secondary hover:bg-secondary">
+                                            <Sun
+                                                className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>
+                                            <Moon
+                                                className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"/>
+                                            <span className="sr-only">Toggle theme</span>
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="end">
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1"
+                                                          onClick={() => setTheme("light")}>
+                                            Light
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1"
+                                                          onClick={() => setTheme("dark")}>
+                                            Dark
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem className="bg-secondary hover:dark:bg-primary m-1"
+                                                          onClick={() => setTheme("system")}>
+                                            System
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+
+                            </div>
+                            <div>
+
+                                    <h1 className="flex justify-center">Wähle die Kartenart: </h1>
+                                <div className="flex justify-center">
+                                    <select className=" justify-center" onChange={(e) => setMapType(e.target.value)}
+                                            value={mapType}>
+                                        <option value="google">Google Maps</option>
+                                        <option value="osm">OpenStreetMap</option>
+                                    </select>
+                                </div>
+
+                                <div style={{height: '500px', marginTop: '20px', width: "500px"}}>
+                                    {mapType === 'google' && <GoogleMapComponent/>}
+                                    {mapType === 'osm' && <OpenStreetMapComponent/>}
+                                </div>
+                            </div>
+                        </CardContent>
+                        <CardFooter>
+                            <Button className="w-full">
+                                <Check className="mr-2 h-4 w-4"/> Send more Information
+                            </Button>
+                        </CardFooter>
+                    </Card>
+
                 </div>
             </main>
         </>
