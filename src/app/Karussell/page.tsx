@@ -11,8 +11,7 @@ import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious}
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay"
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card"
-import {cn} from "@/lib/utils";
-import {className} from "postcss-selector-parser";
+
 
 import GoogleMapComponent from '@/components/nestedComponent/GoogleMapComponent';
 import OpenStreetMapComponent from '@/components/nestedComponent/OpenSTreetMapComponent';
@@ -70,10 +69,6 @@ const notifications = [
         description: "2 hours ago",
     },
 ]
-
-/*
-export function useState<string>(     initialState: string | (() => string)): [string, React.Dispatch<React.SetStateAction<string>>
-*/
 
 type CardProps = React.ComponentProps<typeof Card>
 export default function Page(props: CarouselProps) {
