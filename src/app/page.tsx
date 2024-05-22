@@ -56,11 +56,8 @@ const notifications = [
         description: "2 hours ago",
     },
 ]
-type CardProps = React.ComponentProps<typeof Card>
-const carouselSources= []
-const carouselAlt=[]
-const carouselWidth=[]
-const carouselHeight=[]
+
+
 
 export default function Home() {
     const [position, setPosition] = React.useState("bottom")

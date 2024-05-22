@@ -52,31 +52,8 @@ const contents: CarouselContent[] = [
     },
 ];
 
-type CarouselProps = {
-    slides: CarouselContent[],
-}
-const notifications = [
-    {
-        title: "Your call has been confirmed.",
-        description: "1 hour ago",
-    },
-    {
-        title: "You have a new message!",
-        description: "1 hour ago",
-    },
-    {
-        title: "Your subscription is expiring soon!",
-        description: "2 hours ago",
-    },
-]
-
-type CardProps = React.ComponentProps<typeof Card>
-export default function Page(props: CarouselProps) {
+export default function Page() {
     const {setTheme} = useTheme()
-    const {slides} = props;
-    const plugin = React.useRef(
-        Autoplay({delay: 2000, playOnInit: true,})
-    )
     const [mapType, setMapType] = useState('osm');
     return (
         <>
