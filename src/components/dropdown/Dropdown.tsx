@@ -1,4 +1,19 @@
 import React, { useState } from 'react';
+import {StoryObj} from "@storybook/react";
+import {
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger,
+    DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import {Button} from "@/components/ui/button";
 
 interface Option {
     value: string;
@@ -30,3 +45,9 @@ const Dropdown: React.FC<DropdownProps> = ({ options }) => {
 };
 
 export default Dropdown;
+
+
+// export const BasicDropdown: StoryObj<typeof DropdownMenu> = {
+//     render: () => (
+//
+// };
