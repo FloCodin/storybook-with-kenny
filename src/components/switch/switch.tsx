@@ -15,9 +15,6 @@ const Switch: React.FC<SwitchProps> = ({rounded = false, colorChecked = '#', col
     const toggleSwitch = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         e.stopPropagation(); // Stop event propagation
         setIsChecked(!isChecked);
-        console.log("clicked", isChecked)
-        console.log("clicked", colorUnchecked)
-        console.log("clicked", colorChecked)
     };
 
     return (

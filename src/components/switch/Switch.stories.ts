@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Switch from '@/components/StorybookComponents/switch';
+
 import ButtonOutlined from "@/components/StorybookComponents/ButtonOutlined";
+import Switch from "./switch";
 
 const meta = {
     title: 'Flo/Switch',

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import InputField from "@/components/StorybookComponents/InputField";
+import InputField from "@/components/inputfield/InputField";
 import * as React from "react"
 import {useState} from "react"
 
@@ -27,7 +27,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import Alert from "@/components/StorybookComponents/Alert";
+import Alert from "@/components/alert/Alert";
 import {BellRing, Check, Moon, Sun} from "lucide-react"
 
 import {cn} from "@/lib/utils"
@@ -67,7 +67,7 @@ type CarouselContent = {
 };
 const contents: CarouselContent[] = [
     {
-        src: "/Messi.png",
+        src: "/images/Messi.png",
         alt: "La Pulga, the Goat",
         text: "La Pulga, the Goat",
         height: 1024,
@@ -75,7 +75,7 @@ const contents: CarouselContent[] = [
         border: true,
     },
     {
-        src: "/Ronaldinho.png",
+        src: "/images/Ronaldinho.png",
         alt: "Magician Dinho",
         text: "Magician Dinho",
         height: 2160,
@@ -83,7 +83,7 @@ const contents: CarouselContent[] = [
         border: false,
     },
     {
-        src: "/Iniesta.png",
+        src: "/images/Iniesta.png",
         alt: "Maestro, visionary",
         text: "Maestro, visionary",
         height: 1486,
@@ -542,16 +542,16 @@ export default function Page(props: CarouselProps) {
                     <div className={`border-solid border-gray-500 border-2 flex justify-center bg-$}`}>
                         <AlertDialogTrigger> Card with theme changer and map </AlertDialogTrigger>
                     </div>
-                    <AlertDialogContent>
+                    <AlertDialogContent className="w-screen max-h-screen">
                         <AlertDialogHeader>
 
-                            <Card className=" bg-secondary text-black font-bold w-fit">
+                            <Card className=" bg-secondary text-black font-bold w-auto">
                                 <CardHeader>
                                     <CardTitle className="flex justify-center">Location</CardTitle>
                                     <CardDescription className="flex justify-center">All of our
                                         Locations</CardDescription>
                                 </CardHeader>
-                                <CardContent className="grid gap-4">
+                                <CardContent className="grid gap-2">
                                     <div className=" flex items-center space-x-4 rounded-md border p-4">
                                         <BellRing/>
                                         <div className="flex-1 space-y-1">
@@ -605,7 +605,7 @@ export default function Page(props: CarouselProps) {
                                             </select>
                                         </div>
 
-                                        <div style={{height: '500px', marginTop: '20px', width: "500px"}}>
+                                        <div style={{height: '300px', marginTop: '20px', width: "300px"}}>
                                             {mapType === 'google' && <GoogleMapComponent/>}
                                             {mapType === 'osm' && <OpenStreetMapComponent/>}
                                         </div>
