@@ -18,20 +18,45 @@ const meta = {
 } satisfies Meta<typeof DropdownList>;
 export default meta;
 type Story = StoryObj<typeof meta>;
-export const exampleStory: Story = {
+
+const DropdownListContent = {
+    title: "Dropdown List",
+    Choice1: "Wahl 1",
+    Choice2: "Wahl 2",
+    Checked: "Hat es einen Haken? ",
+    radioValue1: "Top",
+    radioValue2: "Bottom",
+    radioValue3: "Right",
+    radioValue4: "Red",
+    radioValue5: "Blue",
+    radioValue6: "Green",
+    GroupedTitle: "Group Title",
+    GroupedName1: "Group A",
+    GroupedName2: "Group B",
+    SubmenuTitle: "Submenu Title",
+    Submenu1: "Submenu 1",
+    Submenu2: "Submenu 2",
+}
+
+
+export const example1: Story = {
     args: {
-        title: "Dropdown List",
-        Choice1: "Wahl 1",
-        Choice2: "Wahl 2",
-        Checked: "Hat es einen Haken? ",
-        radioValue1: "Orang-Utan",
-        radioValue2: "Chimpanze",
-        GroupedTitle: "Group Title",
-        GroupedName1: "Group A",
-        GroupedName2: "Group B",
-        SubmenuTitle: "Submenu Title",
-        Submenu1: "Submenu 1",
-        Submenu2: "Submenu 2",
-        content: []
+        dataSide: "left",
+        dataAlign: "center",
+        color: "blue",
+        dataOrientation:	"vertical",
+        content: [DropdownListContent],
     }
 };
+export const withTextAsParameter: Story = {
+    args: {
+        dataSide: "left",
+        dataAlign: "center",
+        color: "blue",
+        dataOrientation:	"vertical",
+        content: [DropdownListContent],
+
+
+    }
+};
+
