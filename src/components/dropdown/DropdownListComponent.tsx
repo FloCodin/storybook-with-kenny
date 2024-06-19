@@ -21,12 +21,10 @@ export type DropdownListContent = {
     Choice1: string
     Choice2: string
     Checked: string
-    radioValue1: "Top" | "Bottom" | "Right"
-    radioValue2: "Top" | "Bottom" | "Right"
-    radioValue3: "Top" | "Bottom" | "Right"
-    radioValue4: "Red",
-    radioValue5: "Blue",
-    radioValue6: "Green",
+    radioValue1: "Top" | "Bottom" | "Right"|"Left",
+    radioValue2: "Top" | "Bottom" | "Right"|"Left",
+    radioValue3: "Top" | "Bottom" | "Right"|"Left",
+    radioValue4: "Top" | "Bottom" | "Right"|"Left",
     GroupedTitle: string
     GroupedName1: string
     GroupedName2: string
@@ -37,7 +35,6 @@ export type DropdownListContent = {
 export type DropdownListProps = {
     dataSide: "left" | "right" | "bottom" | "top"
     dataAlign: "start" | "end" | "center"
-    color: "red" | "blue" | "green"
     dataOrientation: "vertical" | "horizontal"
     content: [DropdownListContent]
 }
@@ -47,44 +44,40 @@ export default function DropdownList(props: DropdownListProps) {
         title: "Dropdown List",
         Choice1: "Wahl 1",
         Choice2: "Wahl 2",
-        Checked: "Hat es einen Haken? ",
+        Checked: "Ist es gechecked ?",
         radioValue1: "Top",
         radioValue2: "Bottom",
         radioValue3: "Right",
-        radioValue4: "Red",
-        radioValue5: "Blue",
-        radioValue6: "Green",
+        radioValue4: "Left",
         GroupedTitle: "Group Title",
         GroupedName1: "Group A",
         GroupedName2: "Group B",
-        SubmenuTitle: "Submenu Title",
-        Submenu1: "Submenu 1",
-        Submenu2: "Submenu 2",
+        SubmenuTitle: "Wer ist der Beste ?",
+        Submenu1: "Messi",
+        Submenu2: "Ronaldo",
     }
     const DemoContent: DropdownListProps = {
 
         dataSide: "left",
         dataAlign: "center",
-        color: "blue",
         dataOrientation: "vertical",
         content: [DropdownListContent]
     }
 
     const [position, setPosition] = React.useState("bottom")
-    const [color, setColor] = React.useState('blue');
     return (
 
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button>{DropdownListContent.title}</Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent color={props.color}
+            <DropdownMenuContent
                                  side={props.dataSide}
                                  align={props.dataAlign}
             >
-                <DropdownMenuItem color={props.color}
+                <DropdownMenuItem
                                   onSelect={() => console.log('Banane')}>{DropdownListContent.Choice1}</DropdownMenuItem>
-                <DropdownMenuItem color={props.color}
+                <DropdownMenuItem
                                   onSelect={() => console.log('Apfel')}>{DropdownListContent.Choice2}</DropdownMenuItem>
                 <DropdownMenuSeparator/>
 
@@ -92,21 +85,17 @@ export default function DropdownList(props: DropdownListProps) {
                 }}>{DropdownListContent.Checked}</DropdownMenuCheckboxItem>
                 <DropdownMenuSeparator/>
 
-                <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                    <DropdownMenuRadioItem value="top">{DropdownListContent.radioValue1}</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="bottom">{DropdownListContent.radioValue2}</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="right">{DropdownListContent.radioValue3}</DropdownMenuRadioItem>
+                <DropdownMenuRadioGroup  value={position} onValueChange={setPosition}>
+                    <DropdownMenuRadioItem  value="top">{DropdownListContent.radioValue1}</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem  value="bottom">{DropdownListContent.radioValue2} </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem  value="right">{DropdownListContent.radioValue3}</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem  value="left">{DropdownListContent.radioValue4}</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
+
                 <DropdownMenuSeparator/>
 
-                <DropdownMenuRadioGroup value={color} onValueChange={setColor}>
-                    <DropdownMenuRadioItem value="red">{DropdownListContent.radioValue4}</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="blue">{DropdownListContent.radioValue5}</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="green">{DropdownListContent.radioValue6}</DropdownMenuRadioItem>
-
-
-                </DropdownMenuRadioGroup>
                 <DropdownMenuSeparator/>
+
                 <DropdownMenuLabel>{DropdownListContent.GroupedTitle}</DropdownMenuLabel>
                 <DropdownMenuGroup>
                     <DropdownMenuItem>{DropdownListContent.GroupedName1}</DropdownMenuItem>

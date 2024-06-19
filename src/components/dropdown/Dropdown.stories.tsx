@@ -2,6 +2,22 @@ import {Meta, StoryObj} from '@storybook/react';
 
 import DropdownList from "@/components/dropdown/DropdownListComponent";
 
+type DropdownList = {
+    title: string
+    Choice1: string
+    Choice2: string
+    Checked: string
+    radioValue1: "Top" | "Bottom" | "Right"|"Left",
+    radioValue2: "Top" | "Bottom" | "Right"|"Left",
+    radioValue3: "Top" | "Bottom" | "Right"|"Left",
+    radioValue4: "Top" | "Bottom" | "Right"|"Left",
+    GroupedTitle: string
+    GroupedName1: string
+    GroupedName2: string
+    SubmenuTitle: string
+    Submenu1: string
+    Submenu2: string
+}
 
 const meta = {
     title: 'Flo/Dropdown',
@@ -19,17 +35,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const DropdownListContent = {
+const dropdownListContent: DropdownList = {
     title: "Dropdown List",
     Choice1: "Wahl 1",
     Choice2: "Wahl 2",
-    Checked: "Hat es einen Haken? ",
+    Checked: "Ist es gechecked?  ",
     radioValue1: "Top",
     radioValue2: "Bottom",
     radioValue3: "Right",
-    radioValue4: "Red",
-    radioValue5: "Blue",
-    radioValue6: "Green",
+    radioValue4: "Left",
     GroupedTitle: "Group Title",
     GroupedName1: "Group A",
     GroupedName2: "Group B",
@@ -39,22 +53,20 @@ const DropdownListContent = {
 }
 
 
-export const example1: Story = {
+export const Example1: Story = {
     args: {
         dataSide: "left",
         dataAlign: "center",
-        color: "blue",
         dataOrientation:	"vertical",
-        content: [DropdownListContent],
+        content: [dropdownListContent],
     }
 };
-export const withTextAsParameter: Story = {
+export const Example2: Story = {
     args: {
-        dataSide: "left",
+        dataSide: "right",
         dataAlign: "center",
-        color: "blue",
-        dataOrientation:	"vertical",
-        content: [DropdownListContent],
+        dataOrientation:	"horizontal",
+        content: [dropdownListContent],
 
 
     }

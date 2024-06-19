@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import Alert from "@/components/alert/Alert"
+import Alert, {AlertContent} from "@/components/alert/Alert"
 
 
 const meta = {
@@ -18,30 +18,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const alertContent : AlertContent = {
+    triggerText: "Trigger",
+    textTitle: "Werbung oder so",
+    textDescription: "Hier könnte dein Text stehen",
+}
 
 
-export const standart: Story = {
+export const Standart: Story = {
     args: {
-        triggerColor : '#ef5b5b',
-        triggerText : "The BAT",
-        alertBackground : 'bg-primary',
-        textColor: '#000000',
-        textTitle : "I AM BATMAN",
-        textDescription : "Batman is Batman cause he is a man dressed as as a bat, if a bat would be a hybrid with " +
-            "a man it would be man-batman and a bat that becomes a man would be bat-man-bat ",
-    },
-};
-export const secondary: Story = {
-    args: {
-        triggerColor : '#ef5b5b',
-        triggerText : "The Youngling Slayer",
-        alertBackground : 'bg-secondary',
-        textColor: '#000000',
-        textTitle : "Anakin Skywalker",
-        textDescription : "Anakin Skywalker's unparalleled potential and skill in the Force marked him as one of " +
-            "the most powerful Jedi in history. His journey from a slave on Tatooine to a Jedi Knight and ultimately " +
-            "Darth Vader showcases his immense impact on the galaxy. Despite his fall to the dark side, his eventual " +
-            "redemption and fulfillment of the Chosen One prophecy solidify his legacy as the greatest Jedi " +
-            "to have ever lived.",
-    },
-};
+        alertBackground: 'bg-blue-500',
+        triggerColor: 'bg-blue-500',
+        textColor: "red-500",
+        continueButton: 'bg-orange-500',
+        content: [alertContent],
+    }
+}

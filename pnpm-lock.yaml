@@ -8,6 +8,9 @@ dependencies:
   '@radix-ui/react-alert-dialog':
     specifier: ^1.0.5
     version: 1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
+  '@radix-ui/react-dialog':
+    specifier: ^1.0.5
+    version: 1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
   '@radix-ui/react-dropdown-menu':
     specifier: ^2.0.6
     version: 2.0.6(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
@@ -21,14 +24,17 @@ dependencies:
     specifier: ^2.19.3
     version: 2.19.3(react-dom@18.3.1)(react@18.3.1)
   '@storybook/manager-api':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(react-dom@18.3.1)(react@18.3.1)
   '@storybook/theming':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(react-dom@18.3.1)(react@18.3.1)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
+  cmdk:
+    specifier: ^1.0.0
+    version: 1.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
   embla-carousel-autoplay:
     specifier: ^8.0.4
     version: 8.1.5(embla-carousel@8.1.5)
@@ -68,34 +74,31 @@ dependencies:
 
 devDependencies:
   '@storybook/addon-essentials':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.2)(react-dom@18.3.1)(react@18.3.1)
   '@storybook/addon-interactions':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7
   '@storybook/addon-links':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(react@18.3.1)
   '@storybook/addon-onboarding':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(react@18.3.1)
-  '@storybook/addon-styling-webpack':
-    specifier: 1.0.0
-    version: 1.0.0(webpack@5.92.0)
   '@storybook/addon-themes':
-    specifier: 8.0.9
-    version: 8.0.9
+    specifier: ^8.1.7
+    version: 8.1.10
   '@storybook/blocks':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.2)(react-dom@18.3.1)(react@18.3.1)
   '@storybook/nextjs':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(esbuild@0.20.2)(next@14.2.2)(prettier@3.3.2)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)(webpack@5.92.0)
   '@storybook/react':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(prettier@3.3.2)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
   '@storybook/test':
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7
   '@types/leaflet':
     specifier: ^1.9.12
@@ -125,7 +128,7 @@ devDependencies:
     specifier: ^8
     version: 8.4.38
   storybook:
-    specifier: ^8.0.9
+    specifier: ^8.1.7
     version: 8.1.7(react-dom@18.3.1)(react@18.3.1)
   tailwindcss:
     specifier: ^3.4.1
@@ -3741,17 +3744,8 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/addon-styling-webpack@1.0.0(webpack@5.92.0):
-    resolution: {integrity: sha512-jo1kzn7pi+NA+LZxrWoRvW6w7dXIKY/BjTG80XX2uU92lIKT+X1k/9vYk/0KPVK3Bsf4tO6ToAuqIRyOk7MHtg==}
-    peerDependencies:
-      webpack: ^5.0.0
-    dependencies:
-      '@storybook/node-logger': 8.1.7
-      webpack: 5.92.0(esbuild@0.20.2)
-    dev: true
-
-  /@storybook/addon-themes@8.0.9:
-    resolution: {integrity: sha512-aAbKIT//bqKbMeRLKtVStwndi+XrYxeg94tDKTFrIv2W1It6QJlO/5FMjI+cgtHHBi6w/4ThKDYwjupasaBdlg==}
+  /@storybook/addon-themes@8.1.10:
+    resolution: {integrity: sha512-3LdIa0T5OdPCpnZpZVktUAKFEjohOnggewInNDzfouMNk7k9Y7Qjc98wosri3LW6vEQYZGaoXS3F/XvMELkbTw==}
     dependencies:
       ts-dedent: 2.2.0
     dev: true
@@ -5950,6 +5944,21 @@ packages:
   /clsx@2.0.0:
     resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
     engines: {node: '>=6'}
+    dev: false
+
+  /cmdk@1.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-gDzVf0a09TvoJ5jnuPvygTB77+XdOSwEmJ88L6XPFPlv7T3RxbP9jgenfylrAMD0+Le1aO0nVjQUzl2g+vjz5Q==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@radix-ui/react-dialog': 1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
     dev: false
 
   /color-convert@1.9.3:
