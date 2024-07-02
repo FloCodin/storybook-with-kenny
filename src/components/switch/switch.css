@@ -1,54 +1,53 @@
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    cursor: pointer; /* Hinzugefügt, um den Cursor beim Überfahren des Schalters zu ändern */
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  cursor: pointer; /* Hinzugefügt, um den Cursor beim Überfahren des Schalters zu ändern */
 }
 
 .switch input {
-    display: none; /* Das Input-Feld wird nicht mehr angezeigt */
+  display: none; /* Das Input-Feld wird nicht mehr angezeigt */
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #efefef; /* Standardfarbe für den "unchecked" Zustand */
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #efefef; /* Standardfarbe für den "unchecked" Zustand */
+  transition: 0.4s;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #ffffff;
-    transition: .4s;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  transition: 0.4s;
 }
 
 .slider.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .slider.round:before {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: #00ff00; /* Standardfarbe für den "checked" Zustand */
+  background-color: #00ff00; /* Standardfarbe für den "checked" Zustand */
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #022946; /* Box-Schatten für den Fokus-Zustand */
+  box-shadow: 0 0 1px #022946; /* Box-Schatten für den Fokus-Zustand */
 }
 
-
 input:checked + .slider:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
