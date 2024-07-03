@@ -40,6 +40,10 @@ const frameworks = [
     value: "astro",
     label: "Astro",
   },
+  {
+    value: "tailwindCSS",
+    label: "TailwindCSS",
+  }
 ];
 
 export function ComboboxDemo() {
