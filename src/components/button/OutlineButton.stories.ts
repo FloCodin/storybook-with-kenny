@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import ButtonOutlined from "@/components/StorybookComponents/ButtonOutlined";
+import ButtonOutlined from "@/components/button/ButtonOutlined";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -28,28 +27,28 @@ export const success: Story = {
   },
 };
 
-export const info: Story = {
+export const Info: Story = {
   args: {
     label: "Button",
     type: "info",
   },
 };
 
-export const warning: Story = {
+export const Warning: Story = {
   args: {
     label: "Button",
     type: "warning",
   },
 };
 
-export const danger: Story = {
+export const Danger: Story = {
   args: {
     label: "Button",
     type: "danger",
   },
 };
 
-export const defaultD: Story = {
+export const DefaultD: Story = {
   args: {
     type: "default",
     label: "Delete now",

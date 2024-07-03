@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Alert, { AlertContent } from "@/components/alert/Alert";
 
 const meta = {
-  title: "Flo/Alert",
+  title: "Flo/AlertDialog",
   component: Alert,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -26,8 +26,8 @@ const alertContent: AlertContent = {
 export const Standart: Story = {
   args: {
     alertBackground: "bg-blue-500",
-    triggerColor: "bg-blue-500",
-    textColor: "red-500",
+    triggerColor: "bg-secondary",
+    textColor: "bg-black",
     continueButton: "bg-orange-500",
     content: [alertContent],
   },

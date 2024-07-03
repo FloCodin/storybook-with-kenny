@@ -18,16 +18,11 @@ export type AlertContent = {
 };
 
 export type AlertProps = {
-  triggerColor: "bg-blue-500" | "bg-red-500" | "bg-green-500";
-  alertBackground?: "bg-blue-500" | "bg-red-500" | "bg-green-500";
+  triggerColor?: "bg-primary" |"bg-secondary"|"bg-tertiary";
+  alertBackground?: string;
   textColor: string;
-  continueButton?:
-    | "bg-black"
-    | "bg-blue-500"
-    | "bg-green-500"
-    | "bg-red-500"
-    | "bg-orange-500";
-  content: [AlertContent];
+  continueButton?: string;
+  content?: [AlertContent];
 };
 
 export default function Alert(props: AlertProps) {
@@ -37,19 +32,22 @@ export default function Alert(props: AlertProps) {
     textTitle: "Werbung oder so",
     textDescription: "Hier könnte dein Text stehen",
   };
+  const AlertProps: AlertProps = {
+    textColor: "text-blue-500",
+  }
   return (
     <>
       <AlertDialog>
         <div
-          className={`border-solid border-gray-500 border-2 flex justify-center bg-${props.triggerColor}`}
+          className={`border-solid border-gray-500 border-2 flex justify-center text-green-500 bg-${props.triggerColor}`}
         >
-          <AlertDialogTrigger className={`${props.triggerColor}`}>
+          <AlertDialogTrigger className={`${props.triggerColor }`}>
             {AlertContent.triggerText || "Alert"}
           </AlertDialogTrigger>
         </div>
         <AlertDialogContent className={`${props.alertBackground}`}>
           <AlertDialogHeader className={`${props.textColor}`}>
-            <AlertDialogTitle>{AlertContent.textTitle}</AlertDialogTitle>
+            <AlertDialogTitle className={`${props.textColor}`}>{AlertContent.textTitle}</AlertDialogTitle>
             <AlertDialogDescription className={`text-[${props.textColor}]`}>
               {AlertContent.textDescription}
             </AlertDialogDescription>
