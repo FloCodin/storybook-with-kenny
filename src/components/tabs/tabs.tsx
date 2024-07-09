@@ -15,23 +15,43 @@ import {
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs"
+export type TabContentProps ={
+    TabTitle1?: string
+    TabTitle2?: string
+    color?: string
+}
+export type TabProps ={
 
-export function TabsDemo() {
+    orientation: "vertical" | "horizontal"
+    // gaht bi : Content, Trigger, List und root evt längt orientation suscht [data-orientation] values bliebe glich
+
+    content: TabContentProps
+
+}
+export function TabsDemo(props: TabProps ) {
+
+    const demoContent: TabContentProps={
+        TabTitle1: "Account",
+        TabTitle2: "Password",
+        color: "bg-blue-500"
+    }
+
+
     return (
-        <Tabs defaultValue="account" className="w-[400px]">
-            <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="account">Account</TabsTrigger>
-                <TabsTrigger value="password">Password</TabsTrigger>
+        <Tabs defaultValue="account" className="w-[400px]" orientation={props.orientation}>
+            <TabsList className="grid w-full grid-cols-2" aria-orientation={props.orientation}>
+                <TabsTrigger value="account">{props.content.TabTitle1}</TabsTrigger>
+                <TabsTrigger value="password">{props.content.TabTitle2}</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
                 <Card>
                     <CardHeader>
                         <CardTitle>Account</CardTitle>
                         <CardDescription>
-                            Make changes to your account here. Click save when you're done.
+                            Make changes to your account here. Click save when you are done.
                         </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-2">
+                    <CardContent className={`${props.content.color }`+"space-y-2"}>
                         <div className="space-y-1">
                             <Label htmlFor="name">Name</Label>
                             <Input id="name" defaultValue="Pedro Duarte" />
@@ -51,7 +71,7 @@ export function TabsDemo() {
                     <CardHeader>
                         <CardTitle>Password</CardTitle>
                         <CardDescription>
-                            Change your password here. After saving, you'll be logged out.
+                            Change your password here. After saving, you will be logged out.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">

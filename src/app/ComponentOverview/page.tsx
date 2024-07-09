@@ -836,6 +836,7 @@ export default function Page(props: CarouselProps) {
                                                 <SelectItem value="sveltekit">SvelteKit</SelectItem>
                                                 <SelectItem value="astro">Astro</SelectItem>
                                                 <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                                                <SelectItem value="Tailwind">Tailwind.css</SelectItem>
                                             </SelectContent>
                                         </Select>
                                     </div>
@@ -848,7 +849,7 @@ export default function Page(props: CarouselProps) {
                         </CardFooter>
                     </Card>
                     <div className="p-8">
-                        <Button className={"border-4 border-r-4 border-violet-400"}>Dylan der Bastard </Button>
+                        <Button className={"border-4 border-r-4 border-violet-400"}>Kroos de Bastard  </Button>
                     </div>
                 </div>
             </main>
