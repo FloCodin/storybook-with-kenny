@@ -27,7 +27,7 @@ export const Standart: Story = {
   args: {
     alertBackground: "bg-blue-500",
     triggerColor: "bg-secondary",
-    textColor: "bg-black",
+    textColor: "text-black",
     continueButton: "bg-orange-500",
     content: [alertContent],
   },

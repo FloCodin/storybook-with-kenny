@@ -46,8 +46,8 @@ export default function CardComponent(props: CardStyle) {
     }
 
     return (
-        <div className={`${props.cardColor} `}>
-            <Card className={`${props.cardColor}` + `${props.cardWidth}`}>
+        <div className={`${props.cardColor}`}>
+            <Card className={`${props.cardColor} ${props.cardWidth}`}>
                 <CardHeader>
                     <CardTitle>{TestContent.title}</CardTitle>
                     <CardDescription className="text-black">{TestContent.titleDescription}</CardDescription>

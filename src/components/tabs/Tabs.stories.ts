@@ -1,4 +1,4 @@
-import {TabContentProps, TabProps, TabsDemo} from "@/components/tabs/tabs";
+import { TabsDemo} from "@/components/tabs/tabs";
 import {Meta, StoryObj} from "@storybook/react";
 
 const meta = {
@@ -18,15 +18,31 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 
+export type TabContentProps = {
+    TabTitle1?: string
+    TabTitle2?: string
+}
 const TabContentProps: TabContentProps = {
     TabTitle1: "Account",
     TabTitle2: "Password",
-    color: "bg-blue-500"
 }
+
 
 export const Standart: Story = {
     args: {
         orientation: "vertical",
         content: TabContentProps,
+        color: "bg-blue-500",
+        tabColor: "bg-gray-600",
+        ButtonColor: "bg-tertiary",
+    },
+};
+export const second: Story = {
+    args: {
+        orientation: "horizontal",
+        content: TabContentProps,
+        color: "bg-secondary",
+        tabColor: "bg-gray-600",
+        ButtonColor: "bg-tertiary",
     },
 };

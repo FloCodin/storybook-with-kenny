@@ -41,7 +41,7 @@ export default function Alert(props: AlertProps) {
         <div
           className={`border-solid border-gray-500 border-2 flex justify-center text-green-500 bg-${props.triggerColor}`}
         >
-          <AlertDialogTrigger className={`${props.triggerColor }`}>
+          <AlertDialogTrigger className={`${props.triggerColor} ${props.textColor}`}>
             {AlertContent.triggerText || "Alert"}
           </AlertDialogTrigger>
         </div>
