@@ -17,10 +17,7 @@ export type TabProps = {
     tabColor?: string
     content: TabContentProps
     ButtonColor?: string
-
 }
-
-
 export function TabsDemo(props: TabProps) {
 
     const demoContent: TabContentProps = {
@@ -29,6 +26,7 @@ export function TabsDemo(props: TabProps) {
     }
     const demoTabProps: TabProps = {
         color: "bg-secondary",
+        orientation: "vertical",
         content: demoContent,
         tabColor: "bg-gray-600",
         ButtonColor: "bg-tertiary",

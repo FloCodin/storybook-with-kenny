@@ -10,8 +10,6 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    firstNameBorderColor: { control: "color" },
-    lastNameBorderColor: { control: "color" },
   },
 } satisfies Meta<typeof InputField>;
 
@@ -20,11 +18,12 @@ type Story = StoryObj<typeof meta>;
 
 export const FullName: Story = {
   args: {
-    firstNameLabel: "First name",
-    lastNameLabel: "Last name",
-    firstNameId: "first-name",
-    lastNameId: "last-name",
-    firstNameName: "first-name",
-    lastNameName: "last-name",
+    Input1Label: "First name",
+    Input2Label: "Last name",
+    InputId1: "first-name",
+    InputId2: "last-name",
+    Input1BorderColor: "blue",
+    Input2BorderColor: "red",
+    Input3BorderColor: "blue",
   },
 };
