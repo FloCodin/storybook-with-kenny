@@ -18,7 +18,7 @@ export type AlertContent = {
 };
 
 export type AlertProps = {
-  triggerColor?: "bg-primary" |"bg-secondary"|"bg-tertiary";
+  triggerColor?: string;
   alertBackground?: string;
   textColor: string;
   continueButton?: string;
@@ -39,7 +39,7 @@ export default function Alert(props: AlertProps) {
     <>
       <AlertDialog>
         <div
-          className={`border-solid border-gray-500 border-2 flex justify-center text-green-500 bg-${props.triggerColor}`}
+          className={`border-solid border-gray-500 border-2 flex justify-center text-green-500 ${props.triggerColor}`}
         >
           <AlertDialogTrigger className={`${props.triggerColor} ${props.textColor}`}>
             {AlertContent.triggerText || "Alert"}

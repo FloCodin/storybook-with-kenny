@@ -32,7 +32,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Alert from "@/components/alert/Alert";
+import Alert, {AlertContent} from "@/components/alert/Alert";
 import {BellRing, Check, Moon, Sun} from "lucide-react";
 
 import {cn} from "@/lib/utils";
@@ -102,6 +102,7 @@ type CarouselProps = {
 type CardProps = React.ComponentProps<typeof Card>
 */
 
+
 export default function Page(props: CarouselProps) {
     const {setTheme} = useTheme();
 
@@ -109,6 +110,21 @@ export default function Page(props: CarouselProps) {
     const [position, setPosition] = React.useState("bottom");
 
     toast("Event has been created.")
+
+    type AlertContent = {
+        triggerText: string;
+        textTitle: string;
+        textDescription: string;
+    };
+
+    type AlertProps = {
+        triggerColor?: string;
+        alertBackground?: string;
+        textColor: string;
+        continueButton?: string;
+        content?: [AlertContent];
+    };
+
 
     return (
         <>
@@ -332,14 +348,13 @@ export default function Page(props: CarouselProps) {
                         <AlertDialogContent>
                             <AlertDialogHeader>
                                 <InputField
-                                    firstNameId={"DisMami"}
-                                    firstNameLabel={"DisMami"}
-                                    firstNameName={"DisMami"}
-                                    lastNameLabel={"DinPapi"}
-                                    lastNameId={"DinPapi"}
-                                    lastNameName={"DinPapi"}
-                                    firstNameBorderColor={"purple"}
-                                    lastNameBorderColor={"yellow"}
+                                    Input1Label="first name "
+                                    Input2Label="last name "
+                                    InputId1="text"
+                                    InputId2="text"
+                                    Input1BorderColor="purple"
+                                    Input2BorderColor="black"
+                                    Input3BorderColor="blue"
                                 />
 
                                 <DropdownMenu>
@@ -399,7 +414,6 @@ export default function Page(props: CarouselProps) {
                         triggerColor={"bg-red-500"}
                         textColor={"#000000"}
                         continueButton={"bg-blue-500"}
-                        content={""}
                     />
                     <AlertDialog>
                         <div className="border-solid border-gray-500 border-2 flex justify-center">
@@ -849,7 +863,7 @@ export default function Page(props: CarouselProps) {
                         </CardFooter>
                     </Card>
                     <div className="p-8">
-                        <Button className={"border-4 border-r-4 border-violet-400"}>Kroos de Bastard  </Button>
+                        <Button className={"border-4 border-r-4 border-violet-400"}>Kroos de Bastard </Button>
                     </div>
                 </div>
             </main>
