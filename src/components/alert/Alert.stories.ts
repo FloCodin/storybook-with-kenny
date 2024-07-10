@@ -17,10 +17,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+
 const alertContent: AlertContent = {
-  triggerText: "Trigger",
-  textTitle: "Werbung oder so",
-  textDescription: "Hier könnte dein Text stehen",
+  triggerText: "Delete",
+  textTitle: "Are you sure you want to delete everything",
+  textDescription: "If you press continue, all of your files and memories will be deleted and be flush away, ",
 };
 
 export const Standart: Story = {
@@ -29,6 +30,15 @@ export const Standart: Story = {
     triggerColor: "bg-secondary",
     textColor: "text-black",
     continueButton: "bg-orange-500",
+    content: [alertContent],
+  },
+};
+export const OtherContext: Story = {
+  args: {
+    alertBackground: "bg-purple-500",
+    triggerColor: "bg-primary",
+    textColor: "text-black",
+    continueButton: "bg-red-500",
     content: [alertContent],
   },
 };

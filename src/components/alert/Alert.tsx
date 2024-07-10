@@ -28,9 +28,9 @@ export type AlertProps = {
 export default function Alert(props: AlertProps) {
   console.log(props);
   const AlertContent: AlertContent = {
-    triggerText: "Trigger",
-    textTitle: "Werbung oder so",
-    textDescription: "Hier könnte dein Text stehen",
+    triggerText: "Delete",
+    textTitle: "Are you sure you want to delete everything",
+    textDescription: "If you press continue, all of your files and memories will be deleted and be flush away, ",
   };
   const AlertProps: AlertProps = {
     textColor: "text-blue-500",
