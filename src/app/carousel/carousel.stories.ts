@@ -38,7 +38,7 @@ const demoContent: CarouselContent[] = [
   },
 ];
 
-export const exampleStory: Story = {
+export const withAutoStart: Story = {
   args: {
     autoplayDuration: 3000,
     autoplayOnInit: true,
@@ -49,7 +49,7 @@ export const exampleStory: Story = {
   },
 };
 
-export const exampleStory2: Story = {
+export const noAutoStart: Story = {
   args: {
     autoplayDuration: 100,
     autoplayOnInit: false,

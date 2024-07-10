@@ -1,7 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import ButtonOutlined from "@/components/button/ButtonOutlined";
 import Switch from "./switch";
 
 const meta = {
