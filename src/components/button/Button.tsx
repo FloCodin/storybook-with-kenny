@@ -9,7 +9,6 @@ interface ButtonProps {
     /**
      * What background color to use
      */
-    backgroundColor?: string;
     /**
      * How large should the button be?
      */
@@ -25,6 +24,7 @@ interface ButtonProps {
 
     outlined: boolean;
 
+    buttonColor: string
 }
 
 /**
@@ -33,8 +33,8 @@ interface ButtonProps {
 export const Button = ({
                            primary = false,
                            outlined = true,
+                           buttonColor = "bg-red-500",
                            size = "medium",
-                           backgroundColor,
                            label,
                            ...props
                        }: ButtonProps) => {
@@ -48,30 +48,23 @@ export const Button = ({
     const buttonStyle = outlined
         ? {
             backgroundColor: 'transparent',
-            border: `3px solid ${backgroundColor || 'currentColor'}`,
-            color: backgroundColor || 'currentColor',
+            border: `3px solid ${buttonColor || 'currentColor'}`,
+            color: buttonColor || 'currentColor',
         }
         : {
-            backgroundColor: backgroundColor || 'initial',
+        backgroundColor: buttonColor || 'currentColor',
+
         };
-
-
     return (
         <button
             type="button"
-            className={"" + ["storybook-button", `storybook-button--${size}`, mode].join(
+            className={`${buttonColor}` + [" storybook-button", `storybook-button--${size}`, mode].join(
                 " ",
             )}
             style={buttonStyle}
             {...props}
         >
             {label}
-            <style jsx>{`
-              button {
-                background-color: ${backgroundColor};
-
-              }
-            `}</style>
         </button>
     );
 };
