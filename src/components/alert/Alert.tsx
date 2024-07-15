@@ -18,12 +18,21 @@ type AlertContent = {
 }
 
 interface AlertProps {
+    /**
+     * Insert Tailwind color classes bg-secondary // bg-blue-500
+     */
     triggerColor?: string;
+    /**
+     * Insert Tailwind color classes bg-secondary // bg-blue-500
+     */
     alertBackground?: string;
     /**
-     * Insert Tailwind color classes
+     *  Tailwind font styling text-black
      */
     textColor: string;
+    /**
+     * Insert Tailwind color classes bg-secondary // bg-blue-500
+     */
     continueButton?: string;
     content?: AlertContent;
 }
