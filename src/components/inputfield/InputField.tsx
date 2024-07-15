@@ -1,88 +1,71 @@
-import {useState} from "react";
+interface InputFieldProps {
+    inputLabel: string;
 
-type InputFieldProps = {
-  Input1Label: string;
-  Input2Label: string;
-  InputId1: string;
-  InputId2: string;
-  Input1BorderColor?: string;
-  Input2BorderColor?: string;
-  Input3BorderColor?: string;
-};
+    inputId: string;
+    /**
+     *  Tailwind color class like: border-violet-400
+     */
+    inputBorderColor?: string;
 
-export default function InputField(props: InputFieldProps) {
-  const {
-    Input1Label = "first name ",
-    Input2Label = "last name ",
-    InputId1 = "text",
-    InputId2 = "text",
-    Input1BorderColor = "purple", // Standardwert für die Randfarbe
-    Input2BorderColor = "black", // Standardwert für die Randfarbe
-    Input3BorderColor = "blue", // Standardwert für die Randfarbe
-  } = props;
+    /**
+     *  Use Tailwind color classes bg-YOurColor-100-900
+     */
+    backgroundColor?: string;
+
+    /**
+     *  A choice of the 3 possible Border styles
+     */
+    borderStyle: "border around" | "no border" | "border bottom";
+
+    /**
+     * not required but the text inside the textfield
+     */
+    placeholder?: string
+
+    /*
+    * if an answer is requiered/expected from the field
+    */
+    required: boolean
+}
 
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
 
-  const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFirstName(e.target.value);
-  };
+export const InputField = ({
+                               inputLabel = "first name ",
+                               inputId = "text",
+                               inputBorderColor = "border-violet-400", // Standardwert für die Randfarbe
+                               backgroundColor = "bg-yellow-100",
+                               borderStyle = "border around",
+                               placeholder = "your text here",
+                               required = false
+                           }: InputFieldProps) => {
 
-  const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLastName(e.target.value);
-  };
-  return (
-    <>
-      <h1>The input element</h1>
+    let borderStyleString;
+    switch (borderStyle) {
+        case "no border":
+            borderStyleString = `border-none pl-2 ${backgroundColor}`;
+            break;
+        case "border bottom":
+            borderStyleString = `border-b-2 pl-2 ${inputBorderColor} ${backgroundColor}`;
+            break;
+        case "border around":
+            borderStyleString = `${inputBorderColor} pl-2 border-2 ${backgroundColor}`;
+    }
 
-      <form>
-        <label htmlFor={InputId1}>{Input1Label}:</label>
-        <input
-          type="text"
-          id={InputId1}
-          name={"Input1"}
-          placeholder="Your first name here"
-          value={firstName}
-          onChange={handleFirstNameChange}
-          style={{
-            borderColor: Input1BorderColor,
-            border: `solid 2px ${Input1BorderColor}`,
-            marginLeft: '10px',
-          }}
-        />
-        <br />
-        <br />
-        <label htmlFor={InputId2}>{Input2Label}:</label>
-        <input
-          type="text"
-          id={InputId2}
-          name={"Input2"}
-          placeholder="Your last name here"
-          value={lastName}
-          onChange={handleLastNameChange}
-          style={{
-            borderColor: Input2BorderColor,
-            border: `solid 2px ${Input2BorderColor}`,
-            marginLeft: '10px',
-          }}
-        />
-        <br />
+    return (
+        <>
+            <form>
+                <label htmlFor={inputId}>{inputLabel}:</label>
+                <input
+                    type="text"
+                    id={inputId}
+                    name={"Input1"}
+                    placeholder={placeholder}
+                    className={`${borderStyleString}`}
+                    required={required}
+                />
 
-        <br />
-        <label htmlFor="fullName">Full name:</label>
-        <input
-            type="text"
-            id="fullName"
-            value={`${firstName} ${lastName}`}
-            disabled
-            style={{
-              borderColor: Input3BorderColor,
-              border: `solid 2px ${Input3BorderColor}`,
-              marginLeft: '10px',
-            }}
-        />
-      </form>
-    </>
-  );
+            </form>
+        </>
+    );
 }

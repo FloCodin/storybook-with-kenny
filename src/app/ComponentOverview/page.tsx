@@ -1001,13 +1001,13 @@ export default function Page(props: CarouselProps) {
                                                     <Label htmlFor="name" className="text-right">
                                                         Name
                                                     </Label>
-                                                    <Input id="name" value="Florian Rogenmoser" className="col-span-3" />
+                                                    <Input id="name" value="Florian Rogenmoser" className="col-span-3"/>
                                                 </div>
                                                 <div className="grid grid-cols-4 items-center gap-4">
                                                     <Label htmlFor="username" className="text-right">
                                                         Username
                                                     </Label>
-                                                    <Input id="username" value="@FloCodin" className="col-span-3" />
+                                                    <Input id="username" value="@FloCodin" className="col-span-3"/>
                                                 </div>
                                             </div>
                                             <SheetFooter>

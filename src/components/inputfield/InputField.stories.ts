@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import InputField from "@/components/inputfield/InputField";
+import {InputField} from "@/components/inputfield/InputField";
 
 const meta = {
   title: "Flo/InputField",
@@ -16,14 +16,33 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FullName: Story = {
+export const FullBorderWithBG: Story = {
   args: {
-    Input1Label: "First name",
-    Input2Label: "Last name",
-    InputId1: "first-name",
-    InputId2: "last-name",
-    Input1BorderColor: "blue",
-    Input2BorderColor: "red",
-    Input3BorderColor: "blue",
+    inputLabel: "Test name",
+    inputId: "first-name",
+    inputBorderColor: "border-red-400",
+    backgroundColor: "bg-yellow-100",
+    borderStyle: "border around",
+    required: false
+  },
+};
+export const BorderBottom: Story = {
+  args: {
+    inputLabel: "Test name",
+    inputId: "first-name",
+    inputBorderColor: "border-purple-400",
+    backgroundColor: "bg-gray-100",
+    borderStyle: "border bottom",
+    required: false
+  },
+};
+export const NoBorder: Story = {
+  args: {
+    inputLabel: "Test name",
+    inputId: "first-name",
+    inputBorderColor: "border-blue-400",
+    backgroundColor: "bg-red-100",
+    borderStyle: "no border",
+    required: true
   },
 };

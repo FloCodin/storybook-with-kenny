@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Button } from "../../components/button/Button";
+import { Button } from "@/components/button/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -31,8 +31,6 @@ export const Normal: Story = {
     outlined: false,
   },
 };
-
-
 
 export const Outlined: Story = {
   args: {
