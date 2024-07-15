@@ -32,7 +32,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Alert, {AlertContent} from "@/components/alert/Alert";
+import Alert from "@/components/alert/Alert";
 import {BellRing, Check, Moon, Sun} from "lucide-react";
 
 import {cn} from "@/lib/utils";
@@ -51,11 +51,31 @@ import {
     Table,
     TableBody,
     TableCaption,
-    TableCell, TableFooter,
+    TableCell,
+    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import {Slider} from "@/components/ui/slider";
+
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+
+const SHEET_SIDES = ["top", "right", "bottom", "left"] as const
+
+type SheetSide = (typeof SHEET_SIDES)[number]
+
+type SliderProps = React.ComponentProps<typeof Slider>
+
 
 const invoices = [
     {
@@ -800,7 +820,9 @@ export default function Page(props: CarouselProps) {
                             Show Toast
                         </Button>
                     </div>
-                    <div>
+                </div>
+                <div className="flex-col">
+                    <div className="flex ">
                         <Table>
                             <TableCaption>A list of your recent invoices.</TableCaption>
                             <TableHeader>
@@ -829,126 +851,175 @@ export default function Page(props: CarouselProps) {
                             </TableFooter>
                         </Table>
                     </div>
-
-                </div>
-                <div className="px-5">
-                    <Tabs defaultValue="account" className="w-[400px]">
-                        <TabsList className="grid w-full grid-cols-2">
-                            <TabsTrigger value="account">Account</TabsTrigger>
-                            <TabsTrigger value="password">Password</TabsTrigger>
-                        </TabsList>
-                        <TabsContent value="account">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Account</CardTitle>
-                                    <CardDescription>
-                                        Make changes to your account here. Click save when you are done.
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-2">
-                                    <div className="space-y-1">
-                                        <Label htmlFor="name">Name</Label>
-                                        <Input id="name" defaultValue="Pedro Duarte"/>
-                                    </div>
-                                    <div className="space-y-1">
-                                        <Label htmlFor="username">Username</Label>
-                                        <Input id="username" defaultValue="@peduarte"/>
-                                    </div>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button
-                                        variant="outline"
-                                        onClick={() =>
-                                            toast("Changes have been saved made at:", {
-                                                description: "Sunday, December 03, 2023 at 9:00 AM",
-                                                action: {
-                                                    label: "Undo",
-                                                    onClick: () => console.log("Undo"),
-                                                },
-                                            })
-                                        }
-                                    >
-                                        Save changes
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        </TabsContent>
-                        <TabsContent value="password">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Password</CardTitle>
-                                    <CardDescription>
-                                        Change your password here. After saving, you will be logged out.
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-2">
-                                    <div className="space-y-1">
-                                        <Label htmlFor="current">Current password</Label>
-                                        <Input id="current" type="password"/>
-                                    </div>
-                                    <div className="space-y-1">
-                                        <Label htmlFor="new">New password</Label>
-                                        <Input id="new" type="password"/>
-                                    </div>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button
-                                        variant="outline"
-                                        onClick={() =>
-                                            toast("The new password has been saved at: ", {
-                                                description: "Sunday, December 03, 2023 at 9:00 AM",
-                                                action: {
-                                                    label: "Undo",
-                                                    onClick: () => console.log("Undo"),
-                                                },
-                                            })
-                                        }
-                                    >
-                                        Save new Password
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        </TabsContent>
-                    </Tabs>
-                </div>
-                <div className="p-5">
-                    <Card className="w-[350px]">
-                        <CardHeader>
-                            <CardTitle>Create project</CardTitle>
-                            <CardDescription>Deploy your new project in one-click.</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <form>
-                                <div className="grid w-full items-center gap-4">
-                                    <div className="flex flex-col space-y-1.5">
-                                        <Label htmlFor="name">Name</Label>
-                                        <Input id="name" placeholder="Name of your project"/>
-                                    </div>
-                                    <div className="flex flex-col space-y-1.5">
-                                        <Label htmlFor="framework">Framework</Label>
-                                        <Select>
-                                            <SelectTrigger id="framework">
-                                                <SelectValue placeholder="Select"/>
-                                            </SelectTrigger>
-                                            <SelectContent position="popper">
-                                                <SelectItem value="next">Next.js</SelectItem>
-                                                <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                                                <SelectItem value="astro">Astro</SelectItem>
-                                                <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                                                <SelectItem value="Tailwind">Tailwind.css</SelectItem>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                </div>
-                            </form>
-                        </CardContent>
-                        <CardFooter className="flex justify-between">
-                            <Button variant="outline">Cancel</Button>
-                            <Button>Deploy</Button>
-                        </CardFooter>
-                    </Card>
                     <div className="p-8">
-                        <Button className={"border-4 border-r-4 border-violet-400"}>Kroos de Bastard </Button>
+                        <Slider
+                            defaultValue={[50]}
+                            max={100}
+                            step={1}
+                            className={cn("w-[60%]", className)}
+                            {...props}
+                        />
+                    </div>
+
+
+                    <div className="px-5">
+                        <Tabs defaultValue="account" className="w-[400px]">
+                            <TabsList className="grid w-full grid-cols-2">
+                                <TabsTrigger value="account">Account</TabsTrigger>
+                                <TabsTrigger value="password">Password</TabsTrigger>
+                            </TabsList>
+                            <TabsContent value="account">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle>Account</CardTitle>
+                                        <CardDescription>
+                                            Make changes to your account here. Click save when you are done.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="space-y-2">
+                                        <div className="space-y-1">
+                                            <Label htmlFor="name">Name</Label>
+                                            <Input id="name" defaultValue="Pedro Duarte"/>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <Label htmlFor="username">Username</Label>
+                                            <Input id="username" defaultValue="@peduarte"/>
+                                        </div>
+                                    </CardContent>
+                                    <CardFooter>
+                                        <Button
+                                            variant="outline"
+                                            onClick={() =>
+                                                toast("Changes have been saved made at:", {
+                                                    description: "Sunday, December 03, 2023 at 9:00 AM",
+                                                    action: {
+                                                        label: "Undo",
+                                                        onClick: () => console.log("Undo"),
+                                                    },
+                                                })
+                                            }
+                                        >
+                                            Save changes
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+                            </TabsContent>
+                            <TabsContent value="password">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle>Password</CardTitle>
+                                        <CardDescription>
+                                            Change your password here. After saving, you will be logged out.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="space-y-2">
+                                        <div className="space-y-1">
+                                            <Label htmlFor="current">Current password</Label>
+                                            <Input id="current" type="password"/>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <Label htmlFor="new">New password</Label>
+                                            <Input id="new" type="password"/>
+                                        </div>
+                                    </CardContent>
+                                    <CardFooter>
+                                        <Button
+                                            variant="outline"
+                                            onClick={() =>
+                                                toast("The new password has been saved at: ", {
+                                                    description: "Sunday, December 03, 2023 at 9:00 AM",
+                                                    action: {
+                                                        label: "Undo",
+                                                        onClick: () => console.log("Undo"),
+                                                    },
+                                                })
+                                            }
+                                        >
+                                            Save new Password
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+                            </TabsContent>
+                        </Tabs>
+                    </div>
+                    <div className="p-5">
+                        <Card className="w-[350px]">
+                            <CardHeader>
+                                <CardTitle>Create project</CardTitle>
+                                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <form>
+                                    <div className="grid w-full items-center gap-4">
+                                        <div className="flex flex-col space-y-1.5">
+                                            <Label htmlFor="name">Name</Label>
+                                            <Input id="name" placeholder="Name of your project"/>
+                                        </div>
+                                        <div className="flex flex-col space-y-1.5">
+                                            <Label htmlFor="framework">Framework</Label>
+                                            <Select>
+                                                <SelectTrigger id="framework">
+                                                    <SelectValue placeholder="Select"/>
+                                                </SelectTrigger>
+                                                <SelectContent position="popper">
+                                                    <SelectItem value="next">Next.js</SelectItem>
+                                                    <SelectItem value="sveltekit">SvelteKit</SelectItem>
+                                                    <SelectItem value="astro">Astro</SelectItem>
+                                                    <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                                                    <SelectItem value="Tailwind">Tailwind.css</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </CardContent>
+                            <CardFooter className="flex justify-between">
+                                <Button variant="outline">Cancel</Button>
+                                <Button>Deploy</Button>
+                            </CardFooter>
+                        </Card>
+                        <div className="p-8">
+                            <Button className={"border-4 border-r-4 border-violet-400"}>Kroos de Bastard </Button>
+                        </div>
+
+                        <div>
+                            <div className="grid grid-cols-2 gap-2">
+                                {SHEET_SIDES.map((side) => (
+                                    <Sheet key={side}>
+                                        <SheetTrigger asChild>
+                                            <Button variant="outline">{side}</Button>
+                                        </SheetTrigger>
+                                        <SheetContent side={side}>
+                                            <SheetHeader>
+                                                <SheetTitle>Edit profile</SheetTitle>
+                                                <SheetDescription>
+                                                    Make changes to your profile here. Click save when you are done.
+                                                </SheetDescription>
+                                            </SheetHeader>
+                                            <div className="grid gap-4 py-4">
+                                                <div className="grid grid-cols-4 items-center gap-4">
+                                                    <Label htmlFor="name" className="text-right">
+                                                        Name
+                                                    </Label>
+                                                    <Input id="name" value="Florian Rogenmoser" className="col-span-3" />
+                                                </div>
+                                                <div className="grid grid-cols-4 items-center gap-4">
+                                                    <Label htmlFor="username" className="text-right">
+                                                        Username
+                                                    </Label>
+                                                    <Input id="username" value="@FloCodin" className="col-span-3" />
+                                                </div>
+                                            </div>
+                                            <SheetFooter>
+                                                <SheetClose asChild>
+                                                    <Button type="submit">Save changes</Button>
+                                                </SheetClose>
+                                            </SheetFooter>
+                                        </SheetContent>
+                                    </Sheet>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
