@@ -6,44 +6,56 @@ import {Tabs, TabsContent, TabsList, TabsTrigger,} from "@/components/ui/tabs"
 
 
 export type TabContentProps = {
-    TabTitle1?: string
-    TabTitle2?: string
+    tabTitle1?: string
+    tabTitle2?: string
+    tab1Desc?: string
+    tab2Desc?: string
 }
-export type TabProps = {
 
-    orientation?: "vertical" | "horizontal"
-    // gaht bi : Content, Trigger, List und root evt längt orientation suscht [data-orientation] values bliebe glich
-    color?: string,
+interface TabProps {
+    /**
+     * Background color of the tabs set in tailwind classes
+     */
+    tabBG?: string,
+    /**
+     * Color from the tab background set in tailwind classes
+     */
     tabColor?: string
-    content: TabContentProps
-    ButtonColor?: string
+    content?: TabContentProps
+    /**
+     * The save button color set in tailwind classes
+     */
+    buttonColor?: string
+    /**
+     * Width set in tailwind classes
+     */
+    tabSize?: string
 }
-export function TabsDemo(props: TabProps) {
-
-    const demoContent: TabContentProps = {
-        TabTitle1: "Account",
-        TabTitle2: "Password",
-    }
-    const demoTabProps: TabProps = {
-        color: "bg-secondary",
-        orientation: "vertical",
-        content: demoContent,
-        tabColor: "bg-gray-600",
-        ButtonColor: "bg-tertiary",
-    }
-
+const demoContent: TabContentProps = {
+    tabTitle1: "Account",
+    tabTitle2: "Password",
+    tab1Desc: "Make changes to your account here. Click save when you are done.",
+    tab2Desc: " Change your password here. After saving, you will be logged out.",
+}
+export const TabsDemo = ({
+                             tabBG= "bg-secondary",
+                             content= demoContent,
+                             tabColor= "bg-gray-600",
+                             buttonColor= "bg-tertiary",
+                             tabSize= "w-[400px]",
+                         }: TabProps) => {
     return (
-        <Tabs defaultValue="account" className={"w-[400px]"} orientation={props.orientation}>
-            <TabsList className={ `${demoTabProps.tabColor} grid w-full grid-cols-2 text-black` } aria-orientation={props.orientation}>
-                <TabsTrigger value="account">{props.content.TabTitle1}</TabsTrigger>
-                <TabsTrigger value="password">{props.content.TabTitle2}</TabsTrigger>
+        <Tabs defaultValue="account" className={ `${tabSize}`} >
+            <TabsList className={`${tabColor}  grid w-full grid-cols-2 text-black`}>
+                <TabsTrigger value="account" >{content.tabTitle1}</TabsTrigger>
+                <TabsTrigger value="password">{content.tabTitle2}</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-                <Card className={`${demoTabProps.color}`}>
+                <Card className={`${tabBG}`}>
                     <CardHeader>
-                        <CardTitle>Account</CardTitle>
+                        <CardTitle>{content.tabTitle1}</CardTitle>
                         <CardDescription className="text-black">
-                            Make changes to your account here. Click save when you are done.
+                            {content.tab1Desc}
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
@@ -57,16 +69,16 @@ export function TabsDemo(props: TabProps) {
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <Button className={props.ButtonColor}>Save changes</Button>
+                        <Button className={buttonColor}>Save changes</Button>
                     </CardFooter>
                 </Card>
             </TabsContent>
             <TabsContent value="password">
-                <Card className={`${demoTabProps.color}`}>
+                <Card className={`${tabBG}`}>
                     <CardHeader>
-                        <CardTitle>Password</CardTitle>
+                        <CardTitle>{content.tabTitle2}</CardTitle>
                         <CardDescription className="text-black ">
-                            Change your password here. After saving, you will be logged out.
+                            {content.tab2Desc}
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
@@ -80,7 +92,7 @@ export function TabsDemo(props: TabProps) {
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <Button className={props.ButtonColor}>Save password</Button>
+                        <Button className={buttonColor}>Save password</Button>
                     </CardFooter>
                 </Card>
             </TabsContent>

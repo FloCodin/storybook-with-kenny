@@ -3,8 +3,17 @@ import "./switch.css";
 import { Simulate } from "react-dom/test-utils";
 
 export type SwitchProps = {
-  rounded?: boolean;
-  colorChecked?: string;
+    /**
+     * Decides if the shape is rounded or rectangular
+     */
+    rounded?: boolean;
+    /**
+     * The color the switch will be we checked
+     */
+    colorChecked?: string;
+    /**
+     * The color the switch will be we when unchecked
+     */
   colorUnchecked?: string;
 };
 

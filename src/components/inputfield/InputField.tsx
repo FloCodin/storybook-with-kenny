@@ -25,20 +25,26 @@ interface InputFieldProps {
     /*
     * if an answer is requiered/expected from the field
     */
-    required: boolean
+    required?: boolean
+    /**
+     *
+     */
+    pattern?: string // Optional pattern property
 }
 
 
 
 export const InputField = ({
-                               inputLabel = "first name ",
-                               inputId = "text",
-                               inputBorderColor = "border-violet-400", // Standardwert für die Randfarbe
-                               backgroundColor = "bg-yellow-100",
-                               borderStyle = "border around",
-                               placeholder = "your text here",
-                               required = false
-                           }: InputFieldProps) => {
+                               inputLabel="Email",
+                               inputId="email",
+                               inputBorderColor="border-purple-500",
+                               backgroundColor="bg-white",
+                               borderStyle="border around",
+                               placeholder="Enter your email",
+                               required=false,
+                               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" // Regex pattern for email
+
+}: InputFieldProps) => {
 
     let borderStyleString;
     switch (borderStyle) {
@@ -63,8 +69,9 @@ export const InputField = ({
                     placeholder={placeholder}
                     className={`${borderStyleString}`}
                     required={required}
+                    pattern={pattern}
+                    title={"Please enter a valid email address."}
                 />
-
             </form>
         </>
     );

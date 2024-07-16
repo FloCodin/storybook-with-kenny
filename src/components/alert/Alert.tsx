@@ -19,11 +19,11 @@ type AlertContent = {
 
 interface AlertProps {
     /**
-     * Insert Tailwind color classes bg-secondary // bg-blue-500
+     * Set Tailwind color classes bg-secondary // bg-blue-500
      */
     triggerColor?: string;
     /**
-     * Insert Tailwind color classes bg-secondary // bg-blue-500
+     * Set Tailwind color classes bg-secondary // bg-blue-500
      */
     alertBackground?: string;
     /**
@@ -31,7 +31,7 @@ interface AlertProps {
      */
     textColor: string;
     /**
-     * Insert Tailwind color classes bg-secondary // bg-blue-500
+     * Set Tailwind color classes bg-secondary // bg-blue-500
      */
     continueButton?: string;
     content?: AlertContent;
@@ -50,7 +50,6 @@ export const Alert = ({
                           continueButton = "bg-orange-500",
                           content = testContent
                       }: AlertProps) => {
-
     return (
         <>
             <AlertDialog>

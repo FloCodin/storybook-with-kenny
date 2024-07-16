@@ -35,11 +35,11 @@ type DropdownListContent = {
 
 interface DropdownListProps {
     /**
-     * positioning value (top, bottom, left, right ) ?
+     * Positioning value (top, bottom, left, right ) ?
      */
     dataSide?: "left" | "right" | "bottom" | "top";
     /**
-     * will be applied to flex position ( start, end, center ) ?
+     * Will be applied to flex position ( start, end, center ) ?
      * */
     dataAlign?: "start" | "end" | "center";
     content?: DropdownListContent;
