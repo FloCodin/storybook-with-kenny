@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import InputField from "@/components/inputfield/InputField";
+import {InputField} from "@/components/inputfield/InputField";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Alert from "@/components/alert/Alert";
+import {Alert} from "@/components/alert/Alert"
+
 import { BellRing, Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -169,7 +170,7 @@ export default function Home() {
                 className="hover:bg-blue-300 font-bold hover:font-extrabold"
               >
                 {" "}
-                Visit Messi's Website
+                Visit Lionel Messi personal  Website
                 <Link href={"https://messi.com/en/"} className="" />
               </Button>
             </CardFooter>
@@ -240,14 +241,15 @@ export default function Home() {
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <InputField
-          firstNameId={"DisMami"}
-          firstNameLabel={"DisMami"}
-          firstNameName={"DisMami"}
-          lastNameLabel={"DinPapi"}
-          lastNameId={"DinPapi"}
-          lastNameName={"DinPapi"}
-          firstNameBorderColor={"purple"}
-          lastNameBorderColor={"yellow"}
+            inputLabel="Email"
+        inputId="email"
+        inputBorderColor="border-purple-500"
+        backgroundColor="bg-white"
+        borderStyle="border around"
+        placeholder="Enter your email"
+        required={false}
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" // Regex pattern for email
+
         />
 
         <DropdownMenu>
@@ -292,19 +294,10 @@ export default function Home() {
         </AlertDialog>
 
         <Alert
-          alertBackground={"bg-secondary"}
-          textDescription={
-            "Anakin Skywalker's unparalleled potential and skill in the Force marked him as" +
-            " one of the most powerful Jedi in history. His journey from a slave on Tatooine to a Jedi" +
-            " Knight and ultimately Darth Vader showcases his immense impact on the galaxy. Despite his" +
-            " fall to the dark side, his eventual redemption and fulfillment of the Chosen One prophecy " +
-            "solidify his legacy as the greatest Jedi to have ever lived. "
-          }
-          triggerColor={"royal-orange"}
-          textTitle={"Anakin Skywalker"}
-          textColor={"#000000"}
-          triggerText={"the Youngling Slayer"}
-          continueButton={"bg-tertiary"}
+            alertBackground = "bg-blue-500"
+        triggerColor = "bg-secondary"
+        textColor = "text-black"
+        continueButton = "bg-orange-500"
         />
 
         <a
