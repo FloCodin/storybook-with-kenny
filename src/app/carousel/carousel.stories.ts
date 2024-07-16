@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import CarouselComponent, {
+import {
+  CarouselComponent,
   CarouselContent,
 } from "@/app/carousel/CarouselComponent";
 
@@ -20,32 +21,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const demoContent: CarouselContent[] = [
-  {
-    src: "./images/Messi.png",
-    alt: "La Pulga, the Goat",
-    text: "La Pulga, the Goat",
-  },
-  {
-    src: "./images/Ronaldinho.png",
-    alt: "Magician Dinho",
-    text: "Magician Dinho",
-  },
-  {
-    src: "./images/Iniesta.png",
-    alt: "Maestro, visionary",
-    text: "Maestro, visionary",
-  },
-];
+
 
 export const withAutoStart: Story = {
   args: {
     autoplayDuration: 3000,
     autoplayOnInit: true,
-    position: "center",
     loop: true,
     border: true,
-    content: demoContent,
   },
 };
 
@@ -53,9 +36,7 @@ export const noAutoStart: Story = {
   args: {
     autoplayDuration: 100,
     autoplayOnInit: false,
-    position: "start",
     loop: false,
     border: false,
-    content: demoContent,
   },
 };

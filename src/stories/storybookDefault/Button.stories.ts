@@ -34,9 +34,9 @@ export const Normal: Story = {
 
 export const Outlined: Story = {
   args: {
-    primary: true,
+    primary: false,
     label: "Delete now",
     outlined: true,
-    buttonColor: "bg-blue-500",
+    buttonColor: "bg-red-500",
   },
 };

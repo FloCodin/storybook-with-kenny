@@ -10,6 +10,12 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
+    inputBorderColor: {
+      control: 'text',
+    },
+    backgroundColor: {
+      control: 'text',
+    },
   },
 } satisfies Meta<typeof InputField>;
 
@@ -23,7 +29,8 @@ export const FullBorderWithBG: Story = {
     inputBorderColor: "border-red-400",
     backgroundColor: "bg-yellow-100",
     borderStyle: "border around",
-    required: false
+    required: false,
+    pattern:"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
   },
 };
 export const BorderBottom: Story = {
@@ -33,7 +40,8 @@ export const BorderBottom: Story = {
     inputBorderColor: "border-purple-400",
     backgroundColor: "bg-gray-100",
     borderStyle: "border bottom",
-    required: false
+    required: false,
+    pattern:"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
   },
 };
 export const NoBorder: Story = {
@@ -43,6 +51,7 @@ export const NoBorder: Story = {
     inputBorderColor: "border-blue-400",
     backgroundColor: "bg-red-100",
     borderStyle: "no border",
-    required: true
+    required: true,
+    pattern:"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
   },
 };
