@@ -1,46 +1,51 @@
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 import React from "react";
 
-export type DropdownListContent = {
-  title: string;
-  Choice1: string;
-  Choice2: string;
-  Checked: string;
-  radioValue1: "Top" | "Bottom" | "Right" | "Left";
-  radioValue2: "Top" | "Bottom" | "Right" | "Left";
-  radioValue3: "Top" | "Bottom" | "Right" | "Left";
-  radioValue4: "Top" | "Bottom" | "Right" | "Left";
-  GroupedTitle: string;
-  GroupedName1: string;
-  GroupedName2: string;
-  SubmenuTitle: string;
-  Submenu1: string;
-  Submenu2: string;
-};
-export type DropdownListProps = {
-  dataSide: "left" | "right" | "bottom" | "top";
-  dataAlign: "start" | "end" | "center";
-  dataOrientation: "vertical" | "horizontal";
-  content: [DropdownListContent];
+type DropdownListContent = {
+    title: string;
+    Choice1: string;
+    Choice2: string;
+    Checked: string;
+    radioValue1: "Top" | "Bottom" | "Right" | "Left";
+    radioValue2: "Top" | "Bottom" | "Right" | "Left";
+    radioValue3: "Top" | "Bottom" | "Right" | "Left";
+    radioValue4: "Top" | "Bottom" | "Right" | "Left";
+    GroupedTitle: string;
+    GroupedName1: string;
+    GroupedName2: string;
+    SubmenuTitle: string;
+    Submenu1: string;
+    Submenu2: string;
 };
 
-export default function DropdownList(props: DropdownListProps) {
-  const DropdownListContent: DropdownListContent = {
+interface DropdownListProps {
+    /**
+     * positioning value (top, bottom, left, right ) ?
+     */
+    dataSide?: "left" | "right" | "bottom" | "top";
+    /**
+     * will be applied to flex position ( start, end, center ) ?
+     * */
+    dataAlign?: "start" | "end" | "center";
+    content?: DropdownListContent;
+}
+
+const testContent: DropdownListContent = {
     title: "Dropdown List",
     Choice1: "Wahl 1",
     Choice2: "Wahl 2",
@@ -55,75 +60,76 @@ export default function DropdownList(props: DropdownListProps) {
     SubmenuTitle: "Wer ist der Beste ?",
     Submenu1: "Messi",
     Submenu2: "Ronaldo",
-  };
-  const DemoContent: DropdownListProps = {
-    dataSide: "left",
-    dataAlign: "center",
-    dataOrientation: "vertical",
-    content: [DropdownListContent],
-  };
+};
 
-  const [position, setPosition] = React.useState("bottom");
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button>{DropdownListContent.title}</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent side={props.dataSide} align={props.dataAlign}>
-        <DropdownMenuItem onSelect={() => console.log("Banane")}>
-          {DropdownListContent.Choice1}
-        </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => console.log("Apfel")}>
-          {DropdownListContent.Choice2}
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
+export const DropdownList = ({
+                                 dataSide = "left",
+                                 dataAlign = "center",
+                                 content = testContent
+                             }: DropdownListProps) => {
 
-        <DropdownMenuCheckboxItem checked={true} onCheckedChange={() => {}}>
-          {DropdownListContent.Checked}
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuSeparator />
+    const [position, setPosition] = React.useState("bottom");
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button>{content.title}</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side={dataSide} align={dataAlign}>
+                <DropdownMenuItem onSelect={() => console.log("Banane")}>
+                    {content.Choice1}
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => console.log("Apfel")}>
+                    {content.Choice2}
+                </DropdownMenuItem>
+                <DropdownMenuSeparator/>
 
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-          <DropdownMenuRadioItem value="top">
-            {DropdownListContent.radioValue1}
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="bottom">
-            {DropdownListContent.radioValue2}{" "}
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="right">
-            {DropdownListContent.radioValue3}
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="left">
-            {DropdownListContent.radioValue4}
-          </DropdownMenuRadioItem>
-        </DropdownMenuRadioGroup>
+                <DropdownMenuCheckboxItem checked={true} onCheckedChange={() => {
+                }}>
+                    {content.Checked}
+                </DropdownMenuCheckboxItem>
+                <DropdownMenuSeparator/>
 
-        <DropdownMenuSeparator />
+                <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                    <DropdownMenuRadioItem value="top">
+                        {content.radioValue1}
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="bottom">
+                        {content.radioValue2}{" "}
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="right">
+                        {content.radioValue3}
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="left">
+                        {content.radioValue4}
+                    </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
 
-        <DropdownMenuSeparator />
+                <DropdownMenuSeparator/>
 
-        <DropdownMenuLabel>
-          {DropdownListContent.GroupedTitle}
-        </DropdownMenuLabel>
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            {DropdownListContent.GroupedName1}
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            {DropdownListContent.GroupedName2}
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSub>
-          <DropdownMenuSeparator />
-          <DropdownMenuSubTrigger>
-            {DropdownListContent.SubmenuTitle}
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent>
-            <DropdownMenuItem>{DropdownListContent.Submenu1}</DropdownMenuItem>
-            <DropdownMenuItem>{DropdownListContent.Submenu2}</DropdownMenuItem>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+                <DropdownMenuSeparator/>
+
+                <DropdownMenuLabel>
+                    {content.GroupedTitle}
+                </DropdownMenuLabel>
+                <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                        {content.GroupedName1}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        {content.GroupedName2}
+                    </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSub>
+                    <DropdownMenuSeparator/>
+                    <DropdownMenuSubTrigger>
+                        {content.SubmenuTitle}
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuSubContent>
+                        <DropdownMenuItem>{content.Submenu1}</DropdownMenuItem>
+                        <DropdownMenuItem>{content.Submenu2}</DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                </DropdownMenuSub>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
 }

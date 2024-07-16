@@ -8,7 +8,7 @@ interface InputFieldProps {
     inputBorderColor?: string;
 
     /**
-     *  Use Tailwind color classes bg-YOurColor-100-900
+     *  Use Tailwind color classes bg-YourColor-100-900
      */
     backgroundColor?: string;
 

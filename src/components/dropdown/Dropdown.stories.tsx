@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import DropdownList from "@/components/dropdown/DropdownListComponent";
+import {DropdownList} from "@/components/dropdown/DropdownListComponent";
 
 type DropdownList = {
   title: string;
@@ -35,36 +35,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const dropdownListContent: DropdownList = {
-  title: "Dropdown List",
-  Choice1: "Wahl 1",
-  Choice2: "Wahl 2",
-  Checked: "Ist es gechecked?  ",
-  radioValue1: "Top",
-  radioValue2: "Bottom",
-  radioValue3: "Right",
-  radioValue4: "Left",
-  GroupedTitle: "Group Title",
-  GroupedName1: "Group A",
-  GroupedName2: "Group B",
-  SubmenuTitle: "Submenu Title",
-  Submenu1: "Submenu 1",
-  Submenu2: "Submenu 2",
-};
+
 
 export const Example1: Story = {
   args: {
     dataSide: "left",
     dataAlign: "center",
-    dataOrientation: "vertical",
-    content: [dropdownListContent],
   },
 };
 export const Example2: Story = {
   args: {
     dataSide: "right",
     dataAlign: "center",
-    dataOrientation: "horizontal",
-    content: [dropdownListContent],
   },
 };
