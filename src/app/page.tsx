@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {InputField} from "@/components/inputfield/InputField";
+import {InputField} from "@/components/inputfield/inputField";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import {Alert} from "@/components/alert/Alert"
+import {Alert} from "@/components/alert/alert"
 
 import { BellRing, Check } from "lucide-react";
 

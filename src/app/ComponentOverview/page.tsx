@@ -1,7 +1,16 @@
-"use client";
+"use client"
 
+import { format } from "date-fns"
+import { Calendar as CalendarIcon } from "lucide-react"
+
+import { Calendar } from "@/components/ui/calendar"
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
 import Image from "next/image";
-import {InputField} from "@/components/inputfield/InputField";
+import {InputField} from "@/components/inputfield/inputField";
 import * as React from "react";
 import {useState} from "react";
 import {toast} from "sonner"
@@ -32,7 +41,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import {Alert} from "@/components/alert/Alert";
+import {Alert} from "@/components/alert/alert";
 import {BellRing, Check, Moon, Sun} from "lucide-react";
 
 import {cn} from "@/lib/utils";
@@ -183,6 +192,7 @@ export default function Page(props: CarouselProps) {
     const [mapType, setMapType] = useState("osm");
     const [position, setPosition] = React.useState("bottom");
 
+    const [date, setDate] = React.useState<Date>()
     toast("Event has been created.")
 
 
@@ -1004,6 +1014,30 @@ export default function Page(props: CarouselProps) {
                                         </SheetContent>
                                     </Sheet>
                                 ))}
+                            </div>
+                            <div className={"p-4"}>
+                                <Popover>
+                                    <PopoverTrigger asChild>
+                                        <Button
+                                            variant={"outline"}
+                                            className={cn(
+                                                "w-[280px] justify-start text-left font-normal",
+                                                !date && "text-muted-foreground"
+                                            )}
+                                        >
+                                            <CalendarIcon className="mr-2 h-4 w-4" />
+                                            {date ? format(date, "PPP") : <span>Pick a date</span>}
+                                        </Button>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-0">
+                                        <Calendar
+                                            mode="single"
+                                            selected={date}
+                                            onSelect={setDate}
+                                            initialFocus
+                                        />
+                                    </PopoverContent>
+                                </Popover>
                             </div>
                         </div>
                     </div>

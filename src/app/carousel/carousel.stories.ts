@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import {
   CarouselComponent,
   CarouselContent,
-} from "@/app/carousel/CarouselComponent";
+} from "@/app/carousel/carouselComponent";
 
 const meta = {
   title: "Flo/Caroussel",

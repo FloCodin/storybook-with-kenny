@@ -14,20 +14,20 @@ export type TabContentProps = {
 
 interface TabProps {
     /**
-     * Background color of the tabs set in tailwind classes
+     * Background color of the tabs set in tailwind classes for example: "border-violet-400".
      */
     tabBG?: string,
     /**
-     * Color from the tab background set in tailwind classes
+     * Color from the tab background set in tailwind classes for example: "border-violet-400".
      */
     tabColor?: string
     content?: TabContentProps
     /**
-     * The save button color set in tailwind classes
+     * The save button color set in tailwind classes for example: "border-violet-400".
      */
     buttonColor?: string
     /**
-     * Width set in tailwind classes
+     * Width set in tailwind classes for example: "w-[400px]".
      */
     tabSize?: string
 }
