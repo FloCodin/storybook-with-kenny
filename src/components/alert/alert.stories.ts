@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {CardComponent} from "@/components/card/Card"
+import {Alert} from "@/components/alert/alert";
 
 const meta = {
-  title: "Flo/Card",
-  component: CardComponent,
+  title: "Flo/AlertDialog",
+  component: Alert,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -12,40 +12,37 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    cardWidth: {
+    alertBackground: {
       control: 'text',
     },
-    cardColor: {
+    triggerColor: {
       control: 'text',
     },
-    continueButtonColor: {
+    textColor: {
       control: 'text',
     },
-    cancelButtonColor: {
+    continueButton: {
       control: 'text',
     },
-
-    },
+  },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-} satisfies Meta<typeof CardComponent>;
+} satisfies Meta<typeof Alert>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-
-
-export const Example1: Story = {
+export const Standart: Story = {
   args: {
-    cardWidth: "w-[400px]",
-    cardColor: "bg-blue-500",
-    continueButtonColor: "bg-green-500",
-    cancelButtonColor: "bg-red-500",
-  }
-}
-export const Example2: Story = {
+    alertBackground: "bg-blue-500",
+    triggerColor: "bg-secondary",
+    textColor: "text-black",
+    continueButton: "bg-orange-500",
+  },
+};
+export const OtherContext: Story = {
   args: {
-    cardWidth: "w-[600px]",
-    cardColor: "bg-purple-500",
-    continueButtonColor: "bg-black",
-    cancelButtonColor: "bg-orange-500",
-  }
-}
+    alertBackground: "bg-purple-500",
+    triggerColor: "bg-primary",
+    textColor: "text-black",
+    continueButton: "bg-red-500",
+  },
+};

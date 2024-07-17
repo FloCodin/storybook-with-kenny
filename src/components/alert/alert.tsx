@@ -10,6 +10,8 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import * as React from "react";
+import {toast} from "sonner";
+import {Button} from "@/components/ui/button";
 
 type AlertContent = {
     triggerText: string;
@@ -19,21 +21,29 @@ type AlertContent = {
 
 interface AlertProps {
     /**
-     * Set Tailwind color classes bg-secondary // bg-blue-500
+     * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
      */
     triggerColor?: string;
     /**
-     * Set Tailwind color classes bg-secondary // bg-blue-500
+     * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
      */
     alertBackground?: string;
     /**
-     *  Tailwind font styling text-black
+     *  Tailwind font styling for example: "text-black"
      */
     textColor: string;
     /**
-     * Set Tailwind color classes bg-secondary // bg-blue-500
+     * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
      */
     continueButton?: string;
+    /**
+     * The Name of the left button when the Dialog is open
+     */
+    button1?: string;
+    /**
+     * The Name of the right button when the Dialog is open
+     */
+    button2?: string;
     content?: AlertContent;
 }
 
@@ -48,6 +58,8 @@ export const Alert = ({
                           triggerColor = "bg-secondary",
                           textColor = "text-black",
                           continueButton = "bg-orange-500",
+                          button1 = "Cancel",
+                          button2 = "Delete everything!",
                           content = testContent
                       }: AlertProps) => {
     return (
@@ -68,13 +80,46 @@ export const Alert = ({
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogCancel>
+                            <Button
+                                variant="outline"
+                                className="bg-transparent"
+                                onClick={() =>
+                                    toast("you've canceled the deletion", {
+                                        description: "Wednesday, July 17, 2023 at 03:35 PM",
+                                        action: {
+                                            label: "Undo",
+                                            onClick: () => console.log("Undo"),
+                                        },
+                                    })
+                                }
+                            >
+                                {button1}
+                            </Button>
+                        </AlertDialogCancel>
                         <AlertDialogAction className={`${continueButton}`}>
-                            Continue
+                            <Button
+                                variant="outline"
+                                className="bg-transparent"
+                                onClick={() =>
+                                    toast("you've deleted everything", {
+                                        description: "\"Wednesday, July 17, 2023 at 03:35 PM\"",
+                                        action: {
+                                            label: "Undo",
+                                            onClick: () => console.log("Undo"),
+                                        },
+                                    })
+                                }
+                            >
+                                {button2}
+                            </Button>
                         </AlertDialogAction>
+
+
                     </AlertDialogFooter>
                 </AlertDialogContent>
             </AlertDialog>
         </>
     );
 }
+toast("Event has been created.")

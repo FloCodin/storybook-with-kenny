@@ -1,55 +1,49 @@
 interface InputFieldProps {
     /**
-     * A good choosen name for the Inputfield
+     * A good choosen name for the Inputfield.
      */
     inputLabel: string;
     /**
-     * An ID to understand which Element it is
+     * An ID to understand which Element it is.
      */
     inputId: string;
     /**
-     *  Tailwind color class like: border-violet-400
+     *  Tailwind color class for example: "border-violet-400".
      */
     inputBorderColor?: string;
-
     /**
-     *  Use Tailwind color classes bg-YourColor-100-900
+     *  Use Tailwind color classes for example: "border-violet-400".
      */
     backgroundColor?: string;
-
     /**
-     *  A choice of the 3 possible Border styles
+     *  A choice of 3 modern Border styles.
      */
     borderStyle: "border around" | "no border" | "border bottom";
-
     /**
-     * Not required but the text inside the textfield
+     * Not necessary but it is the text inside the text field.
      */
     placeholder?: string
-
     /**
-    * Tells if an answer is requiered/expected from the field
-    */
+     * Tells if an answer is required/expected from the field.
+     */
     required?: boolean
     /**
-     * Tells which characters are
+     * Tells which characters are forced to be used for example: "every email must have a @ and . ".
      */
-    pattern?: string // Optional pattern property
+    pattern?: string // Optional pattern property.
 }
 
-
-
 export const InputField = ({
-                               inputLabel="Email",
-                               inputId="email",
-                               inputBorderColor="border-purple-500",
-                               backgroundColor="bg-white",
-                               borderStyle="border around",
-                               placeholder="Enter your email",
-                               required=false,
-                               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" // Regex pattern for email
+                               inputLabel = "Email",
+                               inputId = "email",
+                               inputBorderColor = "border-purple-500",
+                               backgroundColor = "bg-white",
+                               borderStyle = "border around",
+                               placeholder = "Enter your email",
+                               required = false,
+                               pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" // Regex pattern for email
 
-}: InputFieldProps) => {
+                           }: InputFieldProps) => {
 
     let borderStyleString;
     switch (borderStyle) {
@@ -66,7 +60,7 @@ export const InputField = ({
     return (
         <>
             <form>
-                <label htmlFor={inputId}>{inputLabel}:</label>
+                <label htmlFor={inputId} className={'dark:text-white'}>{inputLabel}:</label>
                 <input
                     type="text"
                     id={inputId}

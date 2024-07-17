@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import {DropdownList} from "@/components/dropdown/DropdownListComponent";
+import {DropdownList} from "@/components/dropdown/dropdownListComponent";
 
 type DropdownList = {
   title: string;

@@ -35,11 +35,11 @@ type DropdownListContent = {
 
 interface DropdownListProps {
     /**
-     * Positioning value (top, bottom, left, right ) ?
+     * Positioning value of the Dropdown Menu/List in relation to the trigger/button with example values of: "top, bottom, left, right" ?.
      */
     dataSide?: "left" | "right" | "bottom" | "top";
     /**
-     * Will be applied to flex position ( start, end, center ) ?
+     * Will be applied to the menu position based on the div around with example values of: "start, end, center".
      * */
     dataAlign?: "start" | "end" | "center";
     content?: DropdownListContent;

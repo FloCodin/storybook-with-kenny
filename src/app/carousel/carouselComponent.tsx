@@ -17,16 +17,16 @@ interface CarouselProps {
      */
     autoplayDuration: number;
     /**
-     * Should the autoplay start when loading the page ( init)
+     * Should the autoplay start when loading the page (init).
      */
     autoplayOnInit: boolean;
 
     /**
-     * Be able to klick threw without a stop
+     * Be able to klick through without a stop.
      */
     loop: boolean;
     /**
-     *  Creates a border around the images and the short desc. text
+     *  Creates a border around the images and the short description text.
      */
     border: boolean;
     content?: CarouselContent[];
