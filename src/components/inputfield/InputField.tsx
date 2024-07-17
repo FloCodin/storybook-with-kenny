@@ -1,6 +1,11 @@
 interface InputFieldProps {
+    /**
+     * A good choosen name for the Inputfield
+     */
     inputLabel: string;
-
+    /**
+     * An ID to understand which Element it is
+     */
     inputId: string;
     /**
      *  Tailwind color class like: border-violet-400
@@ -18,16 +23,16 @@ interface InputFieldProps {
     borderStyle: "border around" | "no border" | "border bottom";
 
     /**
-     * not required but the text inside the textfield
+     * Not required but the text inside the textfield
      */
     placeholder?: string
 
-    /*
-    * if an answer is requiered/expected from the field
+    /**
+    * Tells if an answer is requiered/expected from the field
     */
     required?: boolean
     /**
-     *
+     * Tells which characters are
      */
     pattern?: string // Optional pattern property
 }
