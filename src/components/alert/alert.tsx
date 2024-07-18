@@ -25,23 +25,27 @@ interface AlertProps {
      */
     triggerColor?: string;
     /**
-     * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
+     * Set Tailwind color classes : (e.g. "bg-secondary // bg-blue-500").
      */
     alertBackground?: string;
     /**
-     *  Tailwind font styling for example: "text-black"
+     *  Tailwind font styling for example:(e.g. "text-black").
      */
     textColor: string;
     /**
+     * Set Tailwind color classes for the action button: e.g "bg-secondary // bg-blue-500".
+     */
+    actionButton?: string;
+    /**
      * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
      */
-    continueButton?: string;
+    cancelButton?: string;
     /**
-     * The Name of the left button when the Dialog is open
+     * The label/text of the left button when the Dialog is open.
      */
     button1?: string;
     /**
-     * The Name of the right button when the Dialog is open
+     * The label/text of the right button when the Dialog is open.
      */
     button2?: string;
     content?: AlertContent;
@@ -57,7 +61,8 @@ export const Alert = ({
                           alertBackground = "bg-blue-500",
                           triggerColor = "bg-secondary",
                           textColor = "text-black",
-                          continueButton = "bg-orange-500",
+                          actionButton = "bg-orange-500",
+                          cancelButton = "bg-emerald-300",
                           button1 = "Cancel",
                           button2 = "Delete everything!",
                           content = testContent
@@ -80,10 +85,10 @@ export const Alert = ({
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <AlertDialogCancel>
+                        <AlertDialogCancel className={"bg-transparent hover:bg-transparent border-none"} >
                             <Button
                                 variant="outline"
-                                className="bg-transparent"
+                                className={`${cancelButton}`}
                                 onClick={() =>
                                     toast("you've canceled the deletion", {
                                         description: "Wednesday, July 17, 2023 at 03:35 PM",
@@ -97,10 +102,10 @@ export const Alert = ({
                                 {button1}
                             </Button>
                         </AlertDialogCancel>
-                        <AlertDialogAction className={`${continueButton}`}>
+                        <AlertDialogAction className={"bg-transparent hover:bg-transparent border-none"}>
                             <Button
                                 variant="outline"
-                                className="bg-transparent"
+                                className={`${actionButton}`}
                                 onClick={() =>
                                     toast("you've deleted everything", {
                                         description: "\"Wednesday, July 17, 2023 at 03:35 PM\"",
@@ -113,7 +118,7 @@ export const Alert = ({
                             >
                                 {button2}
                             </Button>
-                        </AlertDialogAction>
+                </AlertDialogAction>
 
 
                     </AlertDialogFooter>
