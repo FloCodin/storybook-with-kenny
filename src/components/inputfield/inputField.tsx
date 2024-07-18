@@ -1,36 +1,36 @@
 interface InputFieldProps {
     /**
-     * A good choosen name for the Inputfield.
+     * Label of the input field.
      */
     inputLabel: string;
     /**
-     * An ID to understand which Element it is.
+     * ID of the input field.
      */
     inputId: string;
     /**
-     *  Tailwind color class for example: "border-violet-400".
+     *  Tailwind color class (e.g. "border-violet-400".)
      */
     inputBorderColor?: string;
     /**
-     *  Use Tailwind color classes for example: "border-violet-400".
+     *  Tailwind color class (e.g. "border-violet-400".)
      */
     backgroundColor?: string;
     /**
-     *  A choice of 3 modern Border styles.
+     *  Border style with 3 options.
      */
     borderStyle: "border around" | "no border" | "border bottom";
     /**
-     * Not necessary but it is the text inside the text field.
+     * The text inside the text field.
      */
     placeholder?: string
     /**
-     * Tells if an answer is required/expected from the field.
+     * Input is required ?.
      */
     required?: boolean
     /**
-     * Tells which characters are forced to be used for example: "every email must have a @ and . ".
+     * regex to check the input.
      */
-    pattern?: string // Optional pattern property.
+    pattern?: string
 }
 
 export const InputField = ({

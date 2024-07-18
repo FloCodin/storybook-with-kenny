@@ -21,23 +21,23 @@ type AlertContent = {
 
 interface AlertProps {
     /**
-     * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
      */
     triggerColor?: string;
     /**
-     * Set Tailwind color classes : (e.g. "bg-secondary // bg-blue-500").
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
      */
     alertBackground?: string;
     /**
-     *  Tailwind font styling for example:(e.g. "text-black").
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
      */
     textColor: string;
     /**
-     * Set Tailwind color classes for the action button: e.g "bg-secondary // bg-blue-500".
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
      */
     actionButton?: string;
     /**
-     * Set Tailwind color classes for example: "bg-secondary // bg-blue-500".
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
      */
     cancelButton?: string;
     /**

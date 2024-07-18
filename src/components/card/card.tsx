@@ -19,19 +19,19 @@ type CardContents = {
 
 interface CardStyle  {
     /**
-    * Is the size of the div from the card in tailwind  classes for example:"w-[400px]".
+    * Is the size of the div from the card in tailwind  classes (e.g. "w-[400px]").
     * */
     cardWidth?: string,
     /**
-    * Set the bg-color of the card in tailwind classes for example: "bg-blue-500/bg-primary".
+    * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
     * */
     cardColor?: string,
     /**
-    * Set the bg color of the continue button in tailwind classes for example: "bg-blue-500/bg-primary".
+    * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
     * */
     continueButtonColor?: string,
     /**
-    * Set the bg color of the cancel button in tailwind classes for example: "bg-blue-500/bg-primary".
+    * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
     * */
     cancelButtonColor?: string,
     content?: CardContents,
