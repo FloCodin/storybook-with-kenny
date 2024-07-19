@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import {Button} from "@/components/ui/button"
+import {Button} from "@/components/button/Button"
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card"
 import {Input} from "@/components/ui/input"
 import {Label} from "@/components/ui/label"
@@ -17,25 +17,34 @@ type CardContents = {
     selectOption4: string
 }
 
-interface CardStyle  {
+interface CardStyle {
     /**
-    * Is the size of the div from the card in tailwind  classes (e.g. "w-[400px]").
-    * */
+     * Is the size of the div from the card in tailwind  classes (e.g. "w-[400px]").
+     * */
     cardWidth?: string,
     /**
-    * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
-    * */
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
+     * */
     cardColor?: string,
     /**
-    * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
-    * */
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
+     * */
     continueButtonColor?: string,
     /**
-    * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
-    * */
+     * The Label of the action Button.
+     */
+    continueButtonLabel?: string,
+    /**
+     * Set Tailwind color class (e.g. "border-violet-400" // bg-secondary.)
+     * */
     cancelButtonColor?: string,
+    /**
+     * The Label of the cancel Button.
+     */
+    cancelButtonLabel?: string,
     content?: CardContents,
 }
+
 const TestContent: CardContents = {
     title: "Project Title",
     titleDescription: "here you can create your project",
@@ -47,14 +56,16 @@ const TestContent: CardContents = {
     selectOption4: "Astro",
 }
 export const CardComponent = ({
-                                cardWidth= "w-[350px]",
-                                cardColor= "bg-blue-500",
-                                continueButtonColor= "bg-green-500",
-                                cancelButtonColor= "bg-red-500",
-                                content= TestContent,
-                            }: CardStyle) => {
+                                  cardWidth = "w-[350px]",
+                                  cardColor = "bg-blue-500",
+                                  continueButtonColor = "bg-green-500",
+                                  continueButtonLabel = "Deploy",
+                                  cancelButtonColor = "bg-red-500",
+                                  cancelButtonLabel = "cancel",
+                                  content = TestContent,
+                              }: CardStyle) => {
     return (
-        <div className={`${cardColor}`+ ``}>
+        <div className={`${cardColor}` + ``}>
             <Card className={`${cardColor} ${cardWidth}`}>
                 <CardHeader>
                     <CardTitle>{content.title}</CardTitle>
@@ -84,9 +95,11 @@ export const CardComponent = ({
                         </div>
                     </form>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                    <Button variant="outline" className={cancelButtonColor}>Cancel</Button>
-                    <Button className={continueButtonColor}>Deploy</Button>
+                <CardFooter className="flex justify-between font-black">
+                    <Button buttonColor={cancelButtonColor} outlined={false}  label={cancelButtonLabel}/>
+                    <Button buttonColor={continueButtonColor} outlined={true} label={continueButtonLabel} />
+
+
                 </CardFooter>
             </Card>
         </div>
