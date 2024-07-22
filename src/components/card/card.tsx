@@ -42,6 +42,11 @@ interface CardStyle {
      * The Label of the cancel Button.
      */
     cancelButtonLabel?: string,
+    /**
+     * chose the button variant.
+     */
+    outlined?: boolean,
+
     content?: CardContents,
 }
 
@@ -62,6 +67,7 @@ export const CardComponent = ({
                                   continueButtonLabel = "Deploy",
                                   cancelButtonColor = "bg-red-500",
                                   cancelButtonLabel = "cancel",
+                                  outlined = false,
                                   content = TestContent,
                               }: CardStyle) => {
     return (
@@ -96,8 +102,8 @@ export const CardComponent = ({
                     </form>
                 </CardContent>
                 <CardFooter className="flex justify-between font-black">
-                    <Button buttonColor={cancelButtonColor} outlined={false}  label={cancelButtonLabel}/>
-                    <Button buttonColor={continueButtonColor} outlined={true} label={continueButtonLabel} />
+                    <Button buttonColor={cancelButtonColor} outlined={outlined} label={cancelButtonLabel}/>
+                    <Button buttonColor={continueButtonColor} outlined={outlined} label={continueButtonLabel}/>
 
 
                 </CardFooter>

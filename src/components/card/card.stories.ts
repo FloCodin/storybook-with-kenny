@@ -45,7 +45,7 @@ export const Example2: Story = {
   args: {
     cardWidth: "w-[600px]",
     cardColor: "bg-purple-500",
-    continueButtonColor: "bg-black",
+    continueButtonColor: "bg-red-500",
     cancelButtonColor: "bg-orange-500",
   }
 }
