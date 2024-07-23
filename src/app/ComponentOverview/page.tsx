@@ -486,7 +486,7 @@ export default function Page(props: CarouselProps) {
                         alertBackground="bg-blue-500"
                         triggerColor="bg-secondary"
                         textColor="text-black"
-                        continueButton="bg-orange-500"
+                        actionButton="bg-orange-500"
                     />
                     <AlertDialog>
                         <div className="border-solid border-gray-500 border-2 flex justify-center">
@@ -1035,6 +1035,8 @@ export default function Page(props: CarouselProps) {
                                             selected={date}
                                             onSelect={setDate}
                                             initialFocus
+                                            captionLayout="dropdown"
+                                            showWeekNumber
                                         />
                                     </PopoverContent>
                                 </Popover>

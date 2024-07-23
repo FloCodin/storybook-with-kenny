@@ -47,6 +47,8 @@ export const DatePickerDemo = ({
                     selected={date}
                     onSelect={setDate}
                     initialFocus
+                    captionLayout="dropdown"
+                    showWeekNumber
                 />
             </PopoverContent>
         </Popover>

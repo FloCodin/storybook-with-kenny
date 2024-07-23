@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {DatePickerDemo} from "@/components/datapicker/datapicker";
+import {DatePickerDemo} from "@/components/datePicker/datePicker";
 
 const meta = {
-    title: "Flo/Datapicker",
+    title: "Flo/Date picker",
     component: DatePickerDemo,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
